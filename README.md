@@ -101,10 +101,53 @@ Things you may want to cover:
 - belongs_to :shipping_days
 - has_many :images
 - has_one :order
-# - has_many :likes
-# - has_many :users, through: :likes
-# - has_many :comments
-# - has_many :users, through: :comments
+## - has_many :likes
+## - has_many :users, through: :likes
+## - has_many :comments
+## - has_many :users, through: :comments
+
+## categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|category|string|null: false|
+### Association
+- has_many :items
+
+## sizesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|size|string|null: false|
+### Association
+- has_many :items
+
+## blandsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|bland|string|null: false|
+### Association
+- has_many :items
+
+## conditionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|condition|string|null: false|
+### Association
+- has_many :items
+
+## shipping_moneysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|shipping_money|string|null: false|
+### Association
+- has_many :items
+
+## shipping_daysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|shipping_day|date|null: false|
+### Association
+- has_many :items
+
 
 ## imagesテーブル
 |Column|Type|Options|
