@@ -72,15 +72,6 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 
-## prefecturesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|prefecture|string||
-### Association
-- has_many :users
-- has_many :orders
-- has_many :items
-
 
 ## itemsテーブル
 |Column|Type|Options|
