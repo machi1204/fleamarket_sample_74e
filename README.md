@@ -82,7 +82,7 @@ Things you may want to cover:
 |brand_id|reference|null: false, foreign_key: true|
 |prefecture_id|reference|null: false, foreign_key: true|
 |condition_id|reference|null: false, foreign_key: true|
-|shipping_money_id|reference|null: false, foreign_key: true|
+|shipping_fee_id|reference|null: false, foreign_key: true|
 |shipping_day_id|reference|null: false, foreign_key: true|
 |name|string|null: false|
 |price|int|null: false|
@@ -94,8 +94,8 @@ Things you may want to cover:
 - belongs_to :size
 - belongs_to :brand
 - belongs_to :condition
-- belongs_to :shipping_moneys
-- belongs_to :shipping_days
+- belongs_to :shipping_fee
+- belongs_to :shipping_day
 - has_many :images
 - has_one :order
 - belongs_to_active_hash :prefecture
@@ -132,10 +132,10 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-## shipping_moneysテーブル
+## shipping_feesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|shipping_money|string|null: false|
+|shipping_fee|string|null: false|
 ### Association
 - has_many :items
 
