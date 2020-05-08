@@ -82,8 +82,8 @@ Things you may want to cover:
 |brand_id|reference|null: false, foreign_key: true|
 |prefecture_id|reference|null: false, foreign_key: true|
 |condition_id|reference|null: false, foreign_key: true|
-|shipping_moneys_id|reference|null: false, foreign_key: true|
-|shipping_days_id|reference|null: false, foreign_key: true|
+|shipping_money_id|reference|null: false, foreign_key: true|
+|shipping_day_id|reference|null: false, foreign_key: true|
 |name|string|null: false|
 |price|int|null: false|
 |explanation|text|null: false|
@@ -165,5 +165,4 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :prefecture
 - belongs_to_active_hash :prefecture
