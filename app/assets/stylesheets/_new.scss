@@ -1,0 +1,32 @@
+.new-contents{
+  background-color: #ccc;
+  
+  &__box{
+    background-color: #ffffff;
+    &__title{
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.4em;
+      .required{
+        color: #ffffff;
+        background-color: #3ccace;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 2px;
+        
+      
+      }
+      .any{
+        color: #ffffff;
+        background-color: #bfbfbf;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        font-size: 12px;
+        border-radius: 2px;
+
+      }
+    }
+
+  }
+}
