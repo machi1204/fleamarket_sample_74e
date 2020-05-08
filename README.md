@@ -87,7 +87,6 @@ Things you may want to cover:
 |name|string|null: false|
 |price|int|null: false|
 |explanation|text|null: false|
-|price|int|null: false|
 |sold_day|date|null: false|
 
 ### Association
@@ -144,7 +143,7 @@ Things you may want to cover:
 ## shipping_daysテーブル
 |Column|Type|Options|
 |------|----|-------|
-|shipping_day|date|null: false|
+|shipping_day|string|null: false|
 ### Association
 - has_many :items
 
