@@ -33,6 +33,20 @@ Things you may want to cover:
 |name|string|null: false|
 |name_kana|string|null: false|
 |birthday|date|null: false|
+### Association
+- has_many :items
+- has_many :orders
+- has_one :pay
+- has_one :address
+# - has_many :likes
+# - has_many :items, through: :likes
+# - has_many :comments
+# - has_many :items, through: :comments
+
+
+## addressesテーブル
+|user_id|reference|null: false, foreign_key: true|
+|prefecture_id|reference|null: false, foreign_key: true|
 |destination_name|string|null: false|
 |destination_name_kana|string|null: false|
 |postal_code|int(7)|null: false|
@@ -40,17 +54,11 @@ Things you may want to cover:
 |address|string|null: false|
 |building_name|string||
 |phone_number|int||
-
-
 ### Association
-- belongs_to :prefecture
-- has_many :items
-- has_many :orders
-- has_one :pay
-# - has_many :likes
-# - has_many :items, through: :likes
-# - has_many :comments
-# - has_many :items, through: :comments
+- belongs_to :user
+- belongs_to_active_hash :prefecture
+
+
 
 ## paysテーブル
 |Column|Type|Options|
@@ -88,7 +96,6 @@ Things you may want to cover:
 |price|int|null: false|
 |explanation|text|null: false|
 |sold_day|date|null: false|
-
 ### Association
 - belongs_to :user
 - belongs_to :category
@@ -100,6 +107,7 @@ Things you may want to cover:
 - belongs_to :shipping_days
 - has_many :images
 - has_one :order
+- belongs_to_active_hash :prefecture
 ## - has_many :likes
 ## - has_many :users, through: :likes
 ## - has_many :comments
@@ -160,13 +168,11 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |item_id|reference|null: false, foreign_key: true|
+|prefecture_id|reference|null: false, foreign_key: true|
 |buyer|reference|null: false, foreign_key: true|
 |seller|reference|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
 - belongs_to :item
 - belongs_to :prefecture
-
-### Association
-- belongs_to :user
-- belongs_to :group
+- belongs_to_active_hash :prefecture
