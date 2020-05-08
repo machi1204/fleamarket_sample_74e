@@ -45,6 +45,8 @@ Things you may want to cover:
 
 
 ## addressesテーブル
+|Column|Type|Options|
+|------|----|-------|
 |user_id|reference|null: false, foreign_key: true|
 |prefecture_id|reference|null: false, foreign_key: true|
 |destination_name|string|null: false|
