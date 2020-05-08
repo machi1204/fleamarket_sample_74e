@@ -79,7 +79,7 @@ Things you may want to cover:
 |user_id|reference|null: false, foreign_key: true|
 |category_id|reference|null: false, foreign_key: true|
 |size_id|reference|null: false, foreign_key: true|
-|bland_id|reference|null: false, foreign_key: true|
+|brand_id|reference|null: false, foreign_key: true|
 |prefecture_id|reference|null: false, foreign_key: true|
 |condition_id|reference|null: false, foreign_key: true|
 |shipping_moneys_id|reference|null: false, foreign_key: true|
@@ -92,8 +92,7 @@ Things you may want to cover:
 - belongs_to :user
 - belongs_to :category
 - belongs_to :size
-- belongs_to :bland
-- belongs_to :prefecture
+- belongs_to :brand
 - belongs_to :condition
 - belongs_to :shipping_moneys
 - belongs_to :shipping_days
@@ -119,10 +118,10 @@ Things you may want to cover:
 ### Association
 - has_many :items
 
-## blandsテーブル
+## brandsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|bland|string|null: false|
+|brand|string|null: false|
 ### Association
 - has_many :items
 
