@@ -1,12 +1,26 @@
 .new-contents{
-  background-color: #ccc;
-  
+  background-color: #ecebeb;
   &__box{
     background-color: #ffffff;
+    width: 650px;
+    height: 320px;
+    margin: 0 auto;
+    padding: 40px;
+    margin-bottom: 2px;
+    &__main-title{
+    color: #c0c0c0;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+    margin-bottom: 24px;
+
+    }
     &__title{
       font-size: 14px;
       font-weight: 600;
       line-height: 1.4em;
+      margin-bottom: 10px; 
+      position: relative;
       .required{
         color: #ffffff;
         background-color: #3ccace;
@@ -14,8 +28,6 @@
         padding: 2px 4px;
         font-size: 12px;
         border-radius: 2px;
-        
-      
       }
       .any{
         color: #ffffff;
@@ -24,9 +36,78 @@
         padding: 2px 4px;
         font-size: 12px;
         border-radius: 2px;
-
       }
+      .yen{
+        position: absolute;
+        top: 15px;
+        left: 375px;
+      }
+      
     }
+    &__text{
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    &__image{
+      font-size: 12px;
+      
+
+    }
+    &__input{
+      height: 48px;
+      width: inherit;
+      padding: 0 16px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-bottom: 24px;
+    
+    }
+    &__textarea{
+      height: 150px;
+      width: inherit;
+      padding: 13px 16px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+    &__select{
+      height: 48px;
+      width: inherit;
+      padding: 0 16px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-bottom: 24px;
+    }
+    
+    &__input-yen{
+      text-align: right;
+      height: 48px;
+      width: 250px;
+      padding: 0 16px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-bottom: 24px;
+      float: right;
+      &__submit{
+        background-color: #3ccace;
+        color: #ffffff;
+        height: 48px;
+        width: 250px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        margin: 20px 220px;
+      }
+
+    }
+    &__attention{
+      font-size: 12px;
+      margin-top: 50px;
+    }
+    
 
   }
+  
 }

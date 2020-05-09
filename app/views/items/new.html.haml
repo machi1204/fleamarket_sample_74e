@@ -9,30 +9,29 @@
     .new-contents__box__text
       最大10枚までアップロードできます
     .new-contents__box__image
-      %iアイコン
-      ドラックアンドドロップ
-      %br
-      または、クリックしてファイルをアップロード
-    .new-contents__box__text
-      選択されたが画像がありません
+      %i{calss: "new-contents__box__image"}アイコン
+      .new-contents__box__image
+        ドラックアンドドロップ
+        %br
+        または、クリックしてファイルをアップロード
   -# 商品説明
   .new-contents__box
     .new-contents__box__title
       商品名
       %supan{class: "required"} 必須
-    %input{placeholder: "40文字まで"}  
+    %input{class: "new-contents__box__input", placeholder: "40文字まで"}  
     .new-contents__box__title
       商品の説明
       %supan{class: "required"} 必須
-    %textarea{placeholder: "商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意など）例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"} 
+    %textarea{class: "new-contents__box__textarea", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意など）\n\n例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"} 
   -# 商品詳細
   .new-contents__box
-    .new-contents__box__title
+    .new-contents__box__main-title
       商品の詳細
     .new-contents__box__title
       カテゴリー
       %supan{class: "required"} 必須
-    %select
+    %select{class: "new-contents__box__select"}
       %option{value: ""} 選択してください
       %option{value: ""} カテゴリー１
       %option{value: ""} カテゴリー２
@@ -40,56 +39,55 @@
     .new-contents__box__title
       ブランド
       %supan{class: "any"} 任意
-    %input{placeholder: "例）シャネル"} 
+    %input{class: "new-contents__box__input", placeholder: "例）シャネル"} 
     .new-contents__box__title
       商品の状態
       %supan{class: "required"} 必須
-    %select
-      %option{value: ""} 選択してください
-      %option{value: ""} 新品、未使用
-      %option{value: ""} 未使用に近い
-      %option{value: ""} 目立った傷や汚れなし
-      %option{value: ""} やや傷や汚れあり
-      %option{value: ""} 傷や汚れあり
-      %option{value: ""} 全体的に状態が悪い
+    %select{class: "new-contents__box__select"}
+      %option{value: "選択してください"} 選択してください
+      %option{value: "新品、未使用"} 新品、未使用
+      %option{value: "未使用に近い"} 未使用に近い
+      %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
+      %option{value: "やや傷や汚れあり"} やや傷や汚れあり
+      %option{value: "傷や汚れあり"} 傷や汚れあり
+      %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
     -# 発送方法
-    .new-contents__box
-      .new-contents__box__title
-        発送方法について
-      .new-contents__box__title
-        発送量の負担
-        %supan{class: "required"} 必須
-      %select
-        %option{value: ""} 選択してください
-        %option{value: ""} 送料込み（出品者負担）
-        %option{value: ""} 着払い（購入者負担）
-      .new-contents__box__title
-        発送元の地域
-        %supan{class: "required"} 必須
-      %select
-        %option{value: ""} 選択してください
-        %option{value: ""} 県名１
-        %option{value: ""} 県名２
-        %option{value: ""} 県名３
-      .new-contents__box__title
-        発送までの日数
-        %supan{class: "required"} 必須
-      %select
-        %option{value: ""} 選択してください
-        %option{value: ""} 発送まで１〜２日
-        %option{value: ""} 発送まで２〜３日
-        %option{value: ""} 発送まで４〜７日
+  .new-contents__box
+    .new-contents__box__main-title
+      発送方法について
+    .new-contents__box__title
+      発送量の負担
+      %supan{class: "required"} 必須
+    %select{class: "new-contents__box__select"}
+      %option{value: ""} 選択してください
+      %option{value: ""} 送料込み（出品者負担）
+      %option{value: ""} 着払い（購入者負担）
+    .new-contents__box__title
+      発送元の地域
+      %supan{class: "required"} 必須
+    %select{class: "new-contents__box__select"}
+      %option{value: ""} 選択してください
+      %option{value: ""} 県名１
+      %option{value: ""} 県名２
+      %option{value: ""} 県名３
+    .new-contents__box__title
+      発送までの日数
+      %supan{class: "required"} 必須
+    %select{class: "new-contents__box__select"}
+      %option{value: ""} 選択してください
+      %option{value: ""} 発送まで１〜２日
+      %option{value: ""} 発送まで２〜３日
+      %option{value: ""} 発送まで４〜７日
     -# 販売価格
-    .new-contents__box
-      .new-contents__box__title
-        価格（¥300〜9,999,999）
-      .new-contents__box__title
-        販売価格
-        %supan{class: "required"} 必須
-        %supan{class: ""} ¥
-        %input{placeholder: 0} 
-      .new-contents__box__btn
-        %input{type: "submit", value:"出品する"}
+  .new-contents__box
+    .new-contents__box__main-title
+      価格（¥300〜9,999,999）
+    .new-contents__box__title
+      販売価格
+      %supan{class: "required"} 必須
+      %supan{class: "yen"} ¥
+      %input{class: "new-contents__box__input-yen", placeholder: 0} 
+        %input{class: "new-contents__box__input-yen__submit", type: "submit", value:"出品する"}
     .new-contents__box__attention
       禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 
