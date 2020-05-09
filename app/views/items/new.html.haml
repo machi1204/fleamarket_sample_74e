@@ -1,4 +1,4 @@
-
+= render "new-header"
 
 .new-contents
   -# 商品画像
@@ -6,11 +6,11 @@
     .new-contents__box__title
       出品画像
       %span{class: "required"} 必須
-    .new-contents__box__text
+    .new-contents__box__image-text
       最大10枚までアップロードできます
     .new-contents__box__image
-      %i{calss: "new-contents__box__image"}アイコン
-      .new-contents__box__image
+      %i{calss: ""}
+      .new-contents__box__image-area
         ドラックアンドドロップ
         %br
         または、クリックしてファイルをアップロード
@@ -90,6 +90,8 @@
         %input{class: "new-contents__box__input-yen__submit", type: "submit", value:"出品する"}
     .new-contents__box__attention
       禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+
+= render "new-footer"
 
 
       

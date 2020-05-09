@@ -1,5 +1,15 @@
+.new-header{
+  background-color: $items_light-gray;
+  height: 150px;
+  text-align: center;
+  &__image{
+  height: 60px;
+  margin-top: 50px;
+  }
+}
+
 .new-contents{
-  background-color: #ecebeb;
+  background-color: $items_light-gray;
   &__box{
     background-color: #ffffff;
     width: 650px;
@@ -13,7 +23,6 @@
     font-weight: 600;
     line-height: 1.4em;
     margin-bottom: 24px;
-
     }
     &__title{
       font-size: 14px;
@@ -23,7 +32,7 @@
       position: relative;
       .required{
         color: #ffffff;
-        background-color: #3ccace;
+        background-color: $main_blue;
         margin: 0 0 0 8px;
         padding: 2px 4px;
         font-size: 12px;
@@ -44,14 +53,16 @@
       }
       
     }
-    &__text{
+    &__image-text{
       font-size: 13px;
       margin-bottom: 24px;
     }
     &__image{
       font-size: 12px;
-      
-
+      text-align: center;
+      &__image-area{
+        height: 150px;
+      }
     }
     &__input{
       height: 48px;
@@ -91,7 +102,7 @@
       margin-bottom: 24px;
       float: right;
       &__submit{
-        background-color: #3ccace;
+        background-color: $main_blue;
         color: #ffffff;
         height: 48px;
         width: 250px;
@@ -110,4 +121,17 @@
 
   }
   
+}
+.new-footer{
+  background-color: $items_light-gray;
+  height: 150px;
+  text-align: center;
+  &__image{
+    height: 50px;
+    margin-top: 50px;
+  }
+  &__text{
+    font-size: 12px;
+
+  }
 }
