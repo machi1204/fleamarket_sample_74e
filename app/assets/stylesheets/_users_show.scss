@@ -1,0 +1,189 @@
+a {
+  text-decoration: none;  
+}
+
+
+.user-container {
+  background-color: $bgc-gray;;
+
+  &-contents {
+    margin: 0 auto;
+    padding: 40px 0 40px;
+    width: 1020px;
+    display: flex;
+    &__left {
+      display: flex;
+      flex-direction: column;
+      width: 280px;
+      margin: 0 40px 0 0;
+
+      .mypage-nav-list li {
+        border-top: 1px solid $tab-gray;
+        .mypage-nav-list__link {
+          font-size: 14px;
+          color: $text-black;
+          padding: 16px;
+          background-color: $white;
+          display: block;
+        }
+      }
+
+      .mypage-nav-head {
+        margin: 40px 0 0;
+      }
+    }
+    &__right {
+      width: 700px;
+
+      .mypage-user-icon {
+        background: url(user-back.png);
+        height: 200px;
+        background-size: cover;
+        text-align: center;
+        position: relative;
+
+        &-image {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translate(0, -50%);
+          color: $text-black;
+
+          .mypage-user-icon__user-name {
+            margin: 8px 0 0;
+            font-size: 14px;
+            font-weight: bold;
+          }
+
+          .mypage-user-icon__numbers {
+
+            .mypage-user-icon__number {
+              font-size: 14px;
+              display: inline-block;
+            }
+          }
+        }
+      }
+      
+      .mypage-tab-contents-notification-todo {
+        background: $white;
+
+        &__tabs {
+          background: $tab-gray;
+          display: flex;
+
+          &-tab {
+            width: 50%;
+            text-align: center;
+            line-height: 72px;
+            font-size: 16px;
+            color: $text-black;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .active {
+            cursor: default;
+            background-color: $white;
+            border-top: 2px solid $red;
+          }
+        }
+
+        .mypage-tab-contents-notification-todo-contents {
+
+          .mypage-tab-content-lists {
+            display: none;
+          }
+
+          .active {
+            display: block;
+
+            .mypage-tab-content-list {
+              border-bottom: 1px solid $tab-gray;
+              &__link {
+                display: block;
+                min-height: 70px;
+                padding: 16px;
+                color: $text-black;
+
+                &-text {
+                  margin: 0 40px 0 68px;
+                }
+              }
+  
+            }
+
+            .mypage-tab-content-list__view {
+              padding: 16px;
+              &-link {
+                display: block;
+                height: 56px;
+                background: $tab-gray;
+                color: $text-black;
+                line-height: 56px;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+
+      .mypage-tab-contents-during-past {
+        margin: 40px 0 0;
+        background: $white;
+
+        &__head {
+          font-weight: bold;
+          padding: 0 16px;
+          background: $tab-head;
+          font-size: 16px;
+          line-height: 72px;
+        }
+
+        &__tabs {
+          background: $tab-gray;
+          display: flex;
+
+          &-tab {
+            width: 50%;
+            text-align: center;
+            line-height: 72px;
+            font-size: 16px;
+            color: $text-black;
+            font-weight: bold;
+            cursor: pointer;
+          }
+
+          .active {
+            cursor: default;
+            background-color: $white;
+            border-top: 2px solid $red;
+          }
+        }
+       
+      }
+
+      .mypage-tab-contents-during-past__contents {
+
+        .mypage-tab-contents-during-past__contents-lists {
+          display: none;
+        }
+
+        .active {
+          display: block;
+
+          .mypage-tab-contents-during-past__contents-list {
+            padding: 160px 0 60px;
+            font-size: 16px;
+            color: $empty-content-text;
+            text-align: center;
+          }
+        }
+        
+
+      }
+    }
+  }
+}

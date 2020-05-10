@@ -1,0 +1,130 @@
+.user-container
+  -# = render "header" 
+  .user-container-contents
+    .user-container-contents__left
+      %ul.mypage-nav-list
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            マイページ
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            お知らせ
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            やることリスト
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            いいね！一覧
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            出品する
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            下書き一覧
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            出品した商品 - 出品中
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            出品した商品 - 取引中
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            出品した商品 - 売却済み
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            購入した商品 - 取引中
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            購入した商品 - 過去の取引
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            ニュース一覧
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            評価一覧
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            ガイド
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            お問い合わせ
+
+      %h3.mypage-nav-head
+        設定
+
+      %ul.mypage-nav-list
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            プロフィール
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            発送元・お届け先住所変更
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            支払い方法
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            メール/パスワード
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            本人情報
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            電話番号の確認
+        %li
+          = link_to user_path, class: "mypage-nav-list__link" do
+            ログアウト
+        
+          
+
+    .user-container-contents__right
+      .mypage-user-icon
+        = link_to "#" , class: "mypage-user-icon-image" do
+          = image_tag "member_photo_noimage_thumb.png", size: "60x60"
+          .mypage-user-icon__user-name
+            sho ishihara
+          .mypage-user-icon__numbers
+            .mypage-user-icon__number
+              評価 0
+            .mypage-user-icon__number
+              出品数 0
+      .mypage-tab-contents-notification-todo
+        .mypage-tab-contents-notification-todo__tabs
+          .mypage-tab-contents-notification-todo__tabs-tab.active
+            お知らせ
+          .mypage-tab-contents-notification-todo__tabs-tab
+            やることリスト
+        .mypage-tab-contents-notification-todo-contents
+          %ul.mypage-tab-content-lists.active
+            %li.mypage-tab-content-list
+              = link_to "#", class: "mypage-tab-content-list__link" do
+                .mypage-tab-content-list__link-text
+                  《15秒！簡単出品するだけ》最大1000pもらえるチャンス！
+            %li.mypage-tab-content-list
+              = link_to "#", class: "mypage-tab-content-list__link" do
+                .mypage-tab-content-list__link-text
+                  《TVCM放送中！》タモリさんのCMやメイキング動画・メゾンメルカリの住人の日常をチェック♪
+            %li.mypage-tab-content-list__view
+              = link_to "#", class: "mypage-tab-content-list__view-link" do
+                一覧を見る
+
+          %ul.mypage-tab-content-lists
+            %li.mypage-tab-content-list
+              = link_to "#", class: "mypage-tab-content-list__link" do
+                やることリストの表示です
+
+      
+      .mypage-tab-contents-during-past
+        %h2.mypage-tab-contents-during-past__head
+          購入した商品
+        .mypage-tab-contents-during-past__tabs
+          .mypage-tab-contents-during-past__tabs-tab.active
+            取引中
+          .mypage-tab-contents-during-past__tabs-tab
+            過去の取引
+        .mypage-tab-contents-during-past__contents
+          %ul.mypage-tab-contents-during-past__contents-lists.active
+            %li.mypage-tab-contents-during-past__contents-list
+              取引中の商品はありません
+  
+  -# = render footer
