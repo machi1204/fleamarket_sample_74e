@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'items#index'
+  root 'root#index'
+  resources :root, only: [:index]
   resources :users
   resources :items, except: [:index]
 end
