@@ -1,0 +1,26 @@
+.header
+  .header__inner
+    .header__inner__main
+      %h1.icon
+        = image_tag 'logo.png', alt: '', height: '', width: '', class: 'header__inner__main__image'
+      .searchbox
+        %form(action="")
+          %input.login-input-text{type: "hidden"}
+          %input.login-input-text{placeholder: "キーワードから探す"}
+          %button
+            .searchbox__icon
+              = image_tag 'icon-search 1.png', alt: '', height: '', width: '100%', class: '.searchbox__icon__img'
+          %input.login-input-text{type: "hidden"}
+    %ul.resultlist
+
+    .header__inner__nav
+    %ul.header__inner__nav__leftlist
+      %li.category  
+        = link_to('カテゴリー', {})     
+      %li.brand 
+        = link_to('ブランド', {})   
+    %ul.header__inner__nav__rightlist
+      %li.login 
+        = link_to('ログイン', {}) 
+      %li.new 
+        = link_to('新規会員登録', {}) 

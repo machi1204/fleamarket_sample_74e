@@ -1,2 +1,170 @@
-%h1 Items#index
-%p Find me in app/views/items/index.html.erb
+= render 'index_header'
+
+.main
+  %section.mainVisual
+    .mainVisual__content
+      %h2.subtitle 人生を変えるフリマアプリ
+      %p.text 
+        FURIMAはだれでもかんたんに出品・購入できる
+        %br
+        フリマアプリです
+      .btn
+        = link_to image_tag("app-store.svg", width: '375', alt: "サンプル画像" ,class: "aBtn"), {}
+        = link_to image_tag("google-play.svg", width: '375', alt: "サンプル画像",class: "gBtn"), {}
+
+  %section.introduction
+    %h2.subtitle FURIMAが選ばれる3つの理由
+      
+    %ul.lists
+      %li.list
+        .list__pict
+          = image_tag 'pict-reason-01.jpg', alt: '', height: '', width: '', class: 'icon'
+          %span.number 1
+        %h3.list__text 3分 ですぐに出品
+        %p.list__description スマホで入力するだけで簡単に出品できる！
+
+      %li.list
+        .list__pict
+          = image_tag 'pict-reason-02.jpg', alt: '', height: '', width: '', class: 'icon'
+          %span.number 2
+        %h3.list__text シンプル で使いやすい
+        %p.list__description  めんどくさい入力は必要なく、検索も購入もスムーズ！
+
+      %li.list
+        .list__pict
+          = image_tag 'pict-reason-03.jpg', alt: '', height: '', width: '', class: 'icon'
+          %span.number 3
+        %h3.list__text 手数料 業界最安
+        %p.list__description 最大3%でお得に出品&購入！      
+
+  %section.middleDl
+    .middleDl__inner
+      %h2.subtitle 会員数日本一位
+      %p.text 
+        FURIMAは、フリマアプリで最も人気。
+        %br
+        出品・購入回数も業界最多です！
+        %br
+        ほしかったあの商品に出会えるかもしれません。
+
+      .btn
+        = link_to image_tag("app-store.svg", alt: "サンプル画像" ,class: "aBtn"), {}
+        = link_to image_tag("google-play.svg", alt: "サンプル画像",class: "gBtn"), {}
+
+  %section.features
+    %h2.head
+      FURIMAの特徴
+    .items
+      %section.item
+        %figure.item__img
+          = image_tag 'icon-01.png', alt: '', height: '', width: '', class: 'icon'
+        %h3.item__subtitle 簡単に売り買いできる
+        %p.item__detail スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
+      %section.item  
+        %figure.item__img
+          = image_tag 'icon-02.png', alt: '', height: '', width: '', class: 'icon'
+        %h3.item__subtitle 売上金は即日振込みに対応
+        %p.item__detail 午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします!
+      %section.item  
+        %figure.item__img
+          = image_tag 'icon-03.png', alt: '', height: '', width: '', class: 'icon'
+        %h3.item__subtitle 様々な支払いに対応
+        %p.item__detail お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。       
+
+  %section.pickupContainer
+    %h2.pickupContainer__head ピックアップカテゴリー
+    .product
+      .product__head
+        = link_to "" do
+          %h3.product__head__title 新規投稿商品
+      .product__lists
+        .list
+          = link_to "",class: ".list__content" do
+            %figure.list__content__image
+              = image_tag 'a004.png', alt: '', height: '', width: '', class: 'img'
+            .list__content__body  
+              %h3.list__content__body__name product3
+              .list__content__body__details
+                %ul
+                  %li 30000円
+                  %li 
+                    %i.fa.fa-star.likeIcon
+                    0
+
+                %p (税込)
+        .list
+          = link_to "",class: ".list__content" do
+            %figure.list__content__image
+              = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
+            .list__content__body  
+              %h3.list__content__body__name product3
+              .list__content__body__details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon  
+                    0                
+                %p (税込)
+        .list
+          = link_to "",class: ".list__content" do
+            %figure.list__content__image
+              = image_tag "a006.png", alt: '', height: '', width: '', class: 'img'
+            .list__content__body  
+              %h3.list__content__body__name product3
+              .list__content__body__details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon 
+                    0
+                %p (税込)
+  %section.pickupContainer
+    %h2.pickupContainer__head ピックアップブランド
+    .product
+      .product__head
+        = link_to "" do
+          %h3.product__head__title 新規投稿商品
+      .product__lists
+        .list
+          = link_to "",class: ".list__content" do
+            %figure.list__content__image
+              = image_tag 'a004.png', alt: '', height: '', width: '', class: 'img'
+            .list__content__body  
+              %h3.list__content__body__name product3
+              .list__content__body__details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon 
+                    0
+                %p (税込)
+        .list
+          = link_to "",class: ".list__content" do
+            %figure.list__content__image
+              = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
+            .list__content__body  
+              %h3.list__content__body__name product3
+              .list__content__body__details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon 
+                    0
+                %p (税込)
+        .list
+          = link_to "",class: ".list__content" do
+            %figure.list__content__image
+              = image_tag "a006.png", alt: '', height: '', width: '', class: 'img'
+            .list__content__body  
+              %h3.list__content__body__name product3
+              .list__content__body__details
+                %ul
+                  %li 30000円
+                  %li
+                    %i.fa.fa-star.likeIcon 
+                    0
+                %p (税込)
+
+= render 'index_app-banner'
+
+= render 'index_footer'
