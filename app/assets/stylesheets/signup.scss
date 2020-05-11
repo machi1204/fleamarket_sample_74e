@@ -4,7 +4,7 @@
 .account-page__header__box {
   text-align: center;
   img {
-    margin-top: 15px;
+    margin: 20px 0;
   }
 }
 
@@ -12,7 +12,6 @@
 h2 {
   font-weight: bold;
   text-align: center;
-  margin-top: 20px;
   padding-top: 20px;
   font-size: 20px;
   color: $text-black;
@@ -89,6 +88,7 @@ h2 {
     font-size: 13px;
     height: 48px;
     background-color: $white;
+    border: 1px solid $empty-content-text;
   }
 
   .account-page__signup__template--bd-m {
@@ -96,6 +96,7 @@ h2 {
     font-size: 13px;
     height: 48px;
     background-color: $white;
+    border: 1px solid $empty-content-text;
   }
 
   .account-page__signup__template--bd-d {
@@ -103,6 +104,7 @@ h2 {
     font-size: 13px;
     height: 48px;
     background-color: $white;
+    border: 1px solid $empty-content-text;
   }
 
 
@@ -124,4 +126,60 @@ h2 {
 .account-page__footer {
   height: 200px;
   width: 100%;
+}
+
+.account-page__signin {
+  width: 80%;
+  background-color: $white;
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
+
+  &__template {
+    color: $text-black;
+    font-weight: bold;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  &__form input{
+    padding-bottom: 8px;
+    font-size: 20px;
+    border-radius: 4px;
+    height: 38px;
+    width: inherit;
+    border: 1px solid $empty-content-text;
+    width: 330px;
+
+    &::placeholder{
+      font-size: 13px;
+      padding-left: 5px;
+    }
+  }
+}
+.account-page__create {
+  p {
+    font-size: 18px;
+  }
+
+}
+.account-page__create-btn input {
+  background-color: #0099E8;
+  border: solid 1px;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 10px 75px;
+  color: $white;
+  width: 330px;
+  
+}
+
+.account-page__signin-btn input {
+  background-color: $main_blue;
+  border: solid 1px;
+  border-radius: 3px;
+  font-size: 18px;
+  padding: 10px 75px;
+  margin: 10px 0 ;
+  color: $white;
+  width: 330px;
 }
