@@ -1,21 +1,139 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "users/shared/links"
+
+.account-page
+  .account-page__header
+    .account-page__header__box
+      =link_to '/hogehoge'do
+        =image_tag 'logo.png', height: '50px'
+
+  .account-page__signup
+    %h2 会員情報入力
+    = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = render "devise/shared/error_messages", resource: resource
+        
+    .account-page__signup__templates
+      .account-page__signup__template
+        %label ニックネーム
+        %span{class: "required"} 必須
+        .account-page__signup__form
+          %input{class: "account-page__signup__form", placeholder: "例)フリマ太郎"}
+      .account-page__signup__template
+        %br
+        %label メールアドレス
+        %span{class: "required"} 必須
+        .account-page__signup__form
+          %input{class: "account-page__signup__form", placeholder: "PC・携帯どちらでも可"}  
+      .account-page__signup__template
+        %br
+        %label パスワード
+        %span{class: "required"} 必須
+        .account-page__signup__form
+          %input{class: "account-page__signup__form", placeholder: "7文字以上の半角英数字"}
+
+      .account-page__signup__template--showpass
+        %br
+        ※英字と数字の両方を含めて設定してください
+      .account-page__signup__template--identity
+        %br
+        %h3 本人確認
+        %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+
+
+      .account-page__signup__template
+        %br
+        %label お名前(全角)
+        %span{class: "required"} 必須
+        .account-page__signup__template-nameform
+          %input{class: "account-page__signup__nameform", placeholder: "例)山田"}  
+          %input{class: "account-page__signup__nameform", placeholder: "例)彩"}  
+
+      .account-page__signup__template
+        %br
+        %label お名前カナ(全角)
+        %span{class: "required"} 必須
+        .account-page__signup__template-nameform
+          %input{class: "account-page__signup__nameform", placeholder: "例)ヤマダ"}  
+          %input{class: "account-page__signup__nameform", placeholder: "例)アヤ"}  
+      
+        .account-page__signup__template--bd
+          %br
+          %label 生年月日
+          %span{class: "required"} 必須
+          %br
+          .account-page__signup__template--bd-sel
+          %select{class: "account-page__signup__template--bd-y"}
+            %option{value: ""}--
+            %option{value: ""} 2020
+            %option{value: ""} 2019
+            %option{value: ""} 2018
+            %option{value: ""} 2017
+            %option{value: ""} 2016
+            %option{value: ""} 2015
+            %option{value: ""} 2014
+            %option{value: ""} 2013
+            %option{value: ""} 2012
+            %option{value: ""} 2011
+            %option{value: ""} 2010
+            %option{value: ""} 2009
+            %option{value: ""} 2008
+            %option{value: ""} 2007
+            %option{value: ""} 2006
+          年
+
+          %select{class: "account-page__signup__template--bd-m"}
+            %option{value: ""}--
+            %option{value: ""} 1
+            %option{value: ""} 2
+            %option{value: ""} 3
+            %option{value: ""} 4
+            %option{value: ""} 5
+            %option{value: ""} 6
+            %option{value: ""} 7
+            %option{value: ""} 8
+            %option{value: ""} 9
+            %option{value: ""} 10
+            %option{value: ""} 11
+            %option{value: ""} 12
+          月
+          %select{class: "account-page__signup__template--bd-d"}
+            %option{value: ""}--
+            %option{value: ""} 1
+            %option{value: ""} 2
+            %option{value: ""} 3
+            %option{value: ""} 4
+            %option{value: ""} 5
+            %option{value: ""} 6
+            %option{value: ""} 7
+            %option{value: ""} 8
+            %option{value: ""} 9
+            %option{value: ""} 10
+            %option{value: ""} 11
+            %option{value: ""} 12
+            %option{value: ""} 13
+            %option{value: ""} 14
+            %option{value: ""} 15
+            %option{value: ""} 16
+            %option{value: ""} 17
+            %option{value: ""} 18
+            %option{value: ""} 19
+            %option{value: ""} 20
+            %option{value: ""} 21
+            %option{value: ""} 22
+            %option{value: ""} 23
+            %option{value: ""} 24
+            %option{value: ""} 25
+            %option{value: ""} 26
+            %option{value: ""} 27
+            %option{value: ""} 28
+            %option{value: ""} 29
+            %option{value: ""} 30
+            %option{value: ""} 31
+          日
+        %br
+
+      .account-page__signup__template-next
+        %input{class: "account-page__signup__template-next", type: "submit", value:"次へ"}
+
+
+  .account-page__footer
+    
+
