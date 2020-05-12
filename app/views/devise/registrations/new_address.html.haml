@@ -1,0 +1,4 @@
+= form_with model: @address, local: true do |f|
+  = f.text_field :post_number, {class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
+
+  %input{type: "submit",class: "new_session-wrapper__main__btn", value: "次へ進む"}
