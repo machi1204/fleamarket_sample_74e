@@ -78,46 +78,23 @@
         = link_to "" do
           %h3.product__head__title 新規投稿商品
       .product__lists
-        .list
-          = link_to "",class: ".list__content" do
-            %figure.list__content__image
-              = image_tag 'a004.png', alt: '', height: '', width: '', class: 'img'
-            .list__content__body  
-              %h3.list__content__body__name product3
-              .list__content__body__details
-                %ul
-                  %li 30000円
-                  %li 
-                    %i.fa.fa-star.likeIcon
-                    0
+        - @items.each do |item|
+          .list
+            = link_to "",class: ".list__content" do
+              %figure.list__content__image
+                = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
+              .list__content__body  
+                %h3.list__content__body__name
+                .list__content__body__details
+                  = item.name
+                  %ul
+                    %li 
+                      =item.price
+                      円                
+                    %li
+                      %i.fa.fa-star.likeIcon  
+                  %p (税込)
 
-                %p (税込)
-        .list
-          = link_to "",class: ".list__content" do
-            %figure.list__content__image
-              = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
-            .list__content__body  
-              %h3.list__content__body__name product3
-              .list__content__body__details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon  
-                    0                
-                %p (税込)
-        .list
-          = link_to "",class: ".list__content" do
-            %figure.list__content__image
-              = image_tag "a006.png", alt: '', height: '', width: '', class: 'img'
-            .list__content__body  
-              %h3.list__content__body__name product3
-              .list__content__body__details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p (税込)
   %section.pickupContainer
     %h2.pickupContainer__head ピックアップブランド
     .product
@@ -125,45 +102,22 @@
         = link_to "" do
           %h3.product__head__title 新規投稿商品
       .product__lists
-        .list
-          = link_to "",class: ".list__content" do
-            %figure.list__content__image
-              = image_tag 'a004.png', alt: '', height: '', width: '', class: 'img'
-            .list__content__body  
-              %h3.list__content__body__name product3
-              .list__content__body__details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p (税込)
-        .list
-          = link_to "",class: ".list__content" do
-            %figure.list__content__image
-              = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
-            .list__content__body  
-              %h3.list__content__body__name product3
-              .list__content__body__details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p (税込)
-        .list
-          = link_to "",class: ".list__content" do
-            %figure.list__content__image
-              = image_tag "a006.png", alt: '', height: '', width: '', class: 'img'
-            .list__content__body  
-              %h3.list__content__body__name product3
-              .list__content__body__details
-                %ul
-                  %li 30000円
-                  %li
-                    %i.fa.fa-star.likeIcon 
-                    0
-                %p (税込)
+        - @items.each do |item|
+          .list
+            = link_to "",class: ".list__content" do
+              %figure.list__content__image
+                = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
+              .list__content__body  
+                %h3.list__content__body__name
+                .list__content__body__details
+                  = item.name
+                  %ul
+                    %li 
+                      =item.price
+                      円                
+                    %li
+                      %i.fa.fa-star.likeIcon  
+                  %p (税込)
 
 = render 'index_app-banner'
 
