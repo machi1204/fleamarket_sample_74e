@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
+    @item.images.new
   end
 
   def create
@@ -21,6 +22,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :explanation, :condition, :shipping_fee, :shipping_day)
+    params.require(:item).permit(:name, :price, :explanation, :condition, :shipping_fee, :shipping_day, images_attributes: [:image, :_destroy, :id])
   end  
 end
