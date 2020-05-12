@@ -8,12 +8,15 @@
         %span{class: "required"} 必須
       .new-contents__box__image-text
         最大10枚までアップロードできます
-      .new-contents__box__image
-        %i{calss: ""}
+      %label{class: "image-label"}
         .new-contents__box__image-area
-          ドラックアンドドロップ
-          %br
-          または、クリックしてファイルをアップロード
+          %i.fas.fa-camera
+          .new-contents__box__image-area__text
+            ドラックアンドドロップ
+            %br
+            または、クリックしてファイルをアップロード
+        = f.fields_for :images do |i|
+          = i.file_field :image, {class: "file_field"}         
     %hr
     -# 商品説明
     .new-contents__box

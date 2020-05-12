@@ -57,12 +57,28 @@
       font-size: 13px;
       margin-bottom: 24px;
     }
-    &__image{
+    &__image-area{
+      background-color: $items_light-gray;
+      height: 150px;
+      width: 650px;
       font-size: 12px;
       text-align: center;
-      &__image-area{
-        height: 150px;
+      border: 1px dashed #ccc;
+      display: flex;
+      justify-content: center;
+      position: relative;
+      i{
+        font-size: 20px;
+        height: 20px;
+        position: absolute;
+        top: 20px;
       }
+      &__text{
+        padding-top: 60px;
+      }
+    }
+    .file_field{
+      display: none;
     }
     &__input{
       height: 48px;
@@ -135,4 +151,5 @@
     font-size: 12px;
 
   }
+
 }
