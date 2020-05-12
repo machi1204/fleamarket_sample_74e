@@ -82,15 +82,15 @@
           .list
             = link_to "",class: ".list__content" do
               %figure.list__content__image
-                = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
+                = item.images.each do |image|
+                  = image_tag image.image.to_s, alt: '', height: '', width: '', class: 'img'
               .list__content__body  
                 %h3.list__content__body__name
                 .list__content__body__details
                   = item.name
                   %ul
                     %li 
-                      =item.price
-                      円                
+                      = number_to_currency(item.price)
                     %li
                       %i.fa.fa-star.likeIcon  
                   %p (税込)
@@ -106,15 +106,15 @@
           .list
             = link_to "",class: ".list__content" do
               %figure.list__content__image
-                = image_tag "a005.png" , alt: '', height: '', width: '', class: 'img'
+                = item.images.each do |image|
+                  = image_tag image.image.to_s, alt: '', height: '', width: '', class: 'img'
               .list__content__body  
                 %h3.list__content__body__name
                 .list__content__body__details
                   = item.name
                   %ul
                     %li 
-                      =item.price
-                      円                
+                      = number_to_currency(item.price)
                     %li
                       %i.fa.fa-star.likeIcon  
                   %p (税込)

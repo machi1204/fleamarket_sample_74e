@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.order(updated_at: "DESC").first(3)
+    @items = Item.includes(:images).order(updated_at: "DESC").first(3)
   end
 
   def new
