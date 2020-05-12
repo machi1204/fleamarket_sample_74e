@@ -24,3 +24,6 @@
         = link_to('ログイン', {}) 
       %li.new 
         = link_to('新規会員登録', {}) 
+
+      %li.log-out
+        = link_to('ログアウト', destroy_user_session_path, method: :delete)
