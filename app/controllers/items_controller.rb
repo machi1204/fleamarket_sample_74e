@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-    @items = Item.includes(:images).order(updated_at: "DESC").first(3)
+    @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC").first(3)
   end
 
   def new
