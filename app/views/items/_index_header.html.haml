@@ -14,16 +14,19 @@
     %ul.resultlist
 
     .header__inner__nav
-    %ul.header__inner__nav__leftlist
-      %li.category  
-        = link_to('カテゴリー', {})     
-      %li.brand 
-        = link_to('ブランド', {})   
-    %ul.header__inner__nav__rightlist
-      %li.login 
-        = link_to('ログイン', {}) 
-      %li.new 
-        = link_to('新規会員登録', {}) 
 
-      %li.log-out
-        = link_to('ログアウト', destroy_user_session_path, method: :delete)
+      %ul.header__inner__nav__leftlist
+        %li.category  
+          = link_to('カテゴリー', {})     
+        %li.brand 
+          = link_to('ブランド', {})   
+      %ul.header__inner__nav__rightlist
+        - if user_signed_in?  
+          %li.logout 
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
+        - else 
+          %li.login 
+            = link_to 'ログイン', new_user_session_path, method: :delete, class: 'btn'
+          %li.new 
+            = link_to '新規会員登録', new_user_registration_path, method: :delete, class: 'btn'
+
