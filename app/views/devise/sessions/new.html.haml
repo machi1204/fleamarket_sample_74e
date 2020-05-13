@@ -11,18 +11,19 @@
         = link_to new_user_registration_path do
           %input{class: "account-page__create-btn", type: "submit", value:"新規会員登録"}
 
-    .account-page__signin__template
-      %br
-      -# %label メールアドレス
-      .account-page__signin__form
-        %input{class: "account-page__signup__form", placeholder: "メールアドレス"}  
-    .account-page__signin__template
-      %br
-      -# %label パスワード
-      .account-page__signin__form
-        %input{class: "account-page__signup__form", placeholder: "パスワード"}
-      %br
-    .account-page__signin-btn
-      %input{class: "account-page__signin-btn", type: "submit", value:"ログイン"}
+    = form_with model:resource, url: session_path(resource_name) do |f|
+      .account-page__signin__template
+        %br
+        -# %label メールアドレス
+        .account-page__signin__form
+          = f.text_field :email, {class: "account-page__signup__form",placeholder: "メールアドレス"}
+      .account-page__signin__template
+        %br
+        -# %label パスワード
+        .account-page__signin__form
+          = f.password_field :password, {class: "account-page__signup__form",placeholder: "パスワード"}
+        %br
+      .account-page__signin-btn
+        = f.submit "ログイン", {class: "account-page__signin-btn"}
 
   .account-page__footer
