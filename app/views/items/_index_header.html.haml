@@ -26,7 +26,7 @@
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
         - else 
           %li.login 
-            = link_to 'ログイン', new_user_session_path, method: :delete, class: 'btn'
+            = link_to 'ログイン', new_user_session_path, class: 'btn'
           %li.new 
-            = link_to '新規会員登録', new_user_registration_path, method: :delete, class: 'btn'
+            = link_to '新規会員登録', new_user_registration_path, class: 'btn'
 
