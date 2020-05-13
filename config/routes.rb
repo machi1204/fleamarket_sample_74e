@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'card/new'
+  get 'card/show'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
@@ -9,4 +11,18 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users
   resources :items, except: [:index]
+  resources :pays, only: [:new, :create, :show, :destroy] do
+    collection do
+      post 'show', to: 'pays#show'
+      post 'pay', to: 'pays#pay'
+      post 'delete', to: 'pays#delete'
+    end
+  end
+  resources :card, only: [:new, :show] do
+    collection do
+      post 'show', to: 'card#show'
+      post 'pay', to: 'card#pay'
+      post 'delete', to: 'card#delete'
+    end
+  end
 end

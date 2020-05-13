@@ -82,3 +82,7 @@ gem 'erb2haml'
 gem 'font-awesome-sass'
 
 gem 'carrierwave'
+
+gem 'payjp'
+gem 'dotenv-rails'
+gem "jquery-rails"
