@@ -1,6 +1,13 @@
+.account-page
+  .account-page__header
+    .account-page__header__box
+      =link_to '/hogehoge'do
+        =image_tag 'logo.png', height: '50px'
 
-.new_session-wrapper__main
-  .new_session-wrapper__main__head
-    登録が完了しました
-  = link_to root_path, class: "new_session-wrapper__main__head link-blue" do
-    トップページに戻る
+
+  .account-page__signup
+    %h2 登録が完了しました
+    %br
+    = link_to root_path, class: "account-page__signup__done" do
+      トップページに戻る
+  .account-page__footer
