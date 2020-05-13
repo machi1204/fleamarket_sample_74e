@@ -78,9 +78,9 @@
         = link_to "" do
           %h3.product__head__title 新規投稿商品
       .product__lists
-        - @items.each do |item|
+        - @items[0..2].each do |item|
           .list
-            = link_to "",class: ".list__content" do
+            = link_to item_path(item.id),class: ".list__content" do
               %figure.list__content__image
                 = item.images.each do |image|
                   = image_tag image.image.to_s, class: 'img'
@@ -102,9 +102,9 @@
         = link_to item_path(item.id) do
           %h3.product__head__title 新規投稿商品
       .product__lists
-        - @items.each do |item|
+        - @items[3..5].each do |item|
           .list
-            = link_to "",class: ".list__content" do
+            = link_to item_path(item.id),class: ".list__content" do
               %figure.list__content__image
                 = item.images.each do |image|
                   = image_tag image.image.to_s, class: 'img'
