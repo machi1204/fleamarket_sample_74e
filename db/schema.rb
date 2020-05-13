@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_034458) do
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
-    t.text "explanation", null: false
+    t.string "explanation", null: false
     t.string "condition", null: false
     t.string "shipping_fee", null: false
     t.string "shipping_day", null: false
@@ -45,14 +45,6 @@ ActiveRecord::Schema.define(version: 2020_05_13_034458) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
-    t.string "last_name", null: false
-    t.string "first_name", null: false
-    t.string "last_name_kana", null: false
-    t.string "first_name_kana", null: false
-    t.integer "birthdate_year", null: false
-    t.integer "birthdate_month", null: false
-    t.integer "birthdate_day", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -21,4 +22,8 @@ class ItemsController < ApplicationController
     params.require(:item).premit(:name, :price, :explanation, :condition, :shipping_fee, :shipping_day)
   end
   
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
 end
