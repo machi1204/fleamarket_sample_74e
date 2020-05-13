@@ -75,6 +75,7 @@ h2 {
     padding: 10px 75px;
     margin: 40px 0 ;
     color: $white;
+    cursor: pointer;
   }
 
   &__template--showpass {
@@ -180,7 +181,7 @@ select{
   padding: 10px 75px;
   color: $white;
   width: 330px;
-
+  cursor: pointer;
 }
 
 .account-page__signin-btn input {
@@ -192,6 +193,7 @@ select{
   margin: 10px 0 ;
   color: $white;
   width: 330px;
+  cursor: pointer;
 }
 
 .account-page__signup__template-enter {
@@ -202,4 +204,5 @@ select{
   padding: 10px 75px;
   margin: 40px 0 ;
   color: $white;
+  cursor: pointer;
 }
