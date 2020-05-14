@@ -12,8 +12,8 @@
   background-color: $items_light-gray;
   &__box{
     background-color: #ffffff;
-    width: 650px;
-    height: 320px;
+    width: 660px;
+    height: 330px;
     margin: 0 auto;
     padding: 40px;
     
@@ -55,7 +55,36 @@
     }
     &__image-text{
       font-size: 13px;
-      margin-bottom: 24px;
+      margin-bottom: 5px;
+    }
+    .flexbox{
+      display: flex;
+      flex-wrap: wrap;
+      width: 660px;
+    }
+    .file-field{
+      display: none;
+    }
+    .new-contents__box__preview,.new-contents__box__preview-first{
+      display: flex;
+      flex-wrap: wrap;
+      &__image{
+        position: relative;
+        padding: 1px;
+        margin: 1px;
+        border: 1px dashed #ccc;
+        background-color: #ecebeb;
+        &__img{
+          width: 120px;
+          height: 120px;
+          margin: 2px;
+          object-fit: cover;
+        }
+        .delete{
+          text-align: center;
+          font-size: 12px;
+        }
+      }
     }
     &__image-area{
       background-color: $items_light-gray;
@@ -75,7 +104,6 @@
       }
       &__text{
         padding-top: 60px;
-        width: 100%;
       }
     }
     .file_field{
