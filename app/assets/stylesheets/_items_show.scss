@@ -33,7 +33,7 @@ a {
         margin: 0 30px;
         align-items: center;
         &--main {
-          width: 550px;
+          width: 560px;
           height: 346px;
           object-fit: cover;
         }
@@ -43,7 +43,7 @@ a {
           justify-content: start;
         }
         &--thumbnail {
-          width: 110px;
+          width: 20%;
           height: 87px;
           object-fit: cover;
         }
@@ -54,11 +54,48 @@ a {
         font-family: Helvetica;
         font-size: 46px;
         font-weight: bold;
-        margin-right: 10px;
         &--detail {
           font-size: 16px;
           font-weight: normal;
         }
+      }
+      &__item-change-btn {
+        display: block;
+        width: 620px;
+        height: 60px;
+        font-size: 20px;
+        color: $white;
+        line-height: 60px;
+        background-color: $main_blue;
+        text-align: center;
+        margin: 15px 0;
+      }
+      p {
+        text-align: center;
+        font-size: 16px;
+      }
+      &__item-delete-btn {
+        display: block;
+        width: 620px;
+        height: 60px;
+        font-size: 20px;
+        color: $white;
+        line-height: 60px;
+        background-color: #aaa;
+        text-align: center;
+        margin: 15px 0;
+      }
+      &__order-btn {
+        display: block;
+        width: 620px;
+        height: 60px;
+        font-size: 26px;
+        font-weight: bold;
+        color: $white;
+        line-height: 60px;
+        background-color: $main_blue;
+        text-align: center;
+        margin-bottom: 30px;
       }
       &__item-detail {
         font-size: 18px;
