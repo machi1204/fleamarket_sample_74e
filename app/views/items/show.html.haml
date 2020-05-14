@@ -25,7 +25,8 @@
         %table
           %tr
             %th 出品者
-            %td （未リンク）hoge
+            %td
+              = User.find(@item.user_id).nickname
           %tr
             %th カテゴリー
             %td
