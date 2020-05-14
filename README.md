@@ -108,7 +108,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |category|string|null: false|
-|ancestry|string|null: false|
+|ancestry|string|
 ### Association
 - has_many :items
 
