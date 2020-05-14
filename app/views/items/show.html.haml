@@ -17,8 +17,8 @@
       .item-box__price
         %span
           = "#{@item.price.to_s(:delimited)}円"
-        .item-box__price--detail
-          %span (税込) 送料込み
+          %span.item-box__price--detail
+            = "(税込) #{@item.shipping_fee}"
       .item-box__item-detail
         = @item.explanation
       .table
