@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   end
   root 'items#index'
   resources :users
-  resources :items, except: [:index]
+  resources :items, except: [:index] do
+    resources :comments, only: :create
+  end
 end
+
+
