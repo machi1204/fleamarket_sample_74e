@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  
+
   def index
+    @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
   end
 
   def new
@@ -18,6 +19,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @id = params[:id]
+    @item = Item.find(params[:id])
   end
 
   private
