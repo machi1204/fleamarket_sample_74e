@@ -6,6 +6,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   
-  has_many :items       
+  has_many :items
   has_one :pay
 end
