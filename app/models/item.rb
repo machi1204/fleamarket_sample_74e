@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+
   validates :name, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999 }
   validates_associated :images

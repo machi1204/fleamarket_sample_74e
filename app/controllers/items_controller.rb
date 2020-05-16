@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :set_item, only: [:show]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -29,5 +30,8 @@ class ItemsController < ApplicationController
      images_attributes: [:image, :_destroy, :id])
   end
   
-end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 
+end
