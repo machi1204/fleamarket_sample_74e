@@ -4,11 +4,13 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.integer :price, null: false
       t.text :explanation, null: false
-      t.string :condition, null: false
-      t.string :shipping_fee, null: false
-      t.string :shipping_day, null: false
-
+      t.datetime :created_at, null: false
+      t.datetime :updated_at, null: false
+      t.integer :condition_id, null: false
+      t.integer :shipping_fee_id, null: false
+      t.integer :shipping_day_id, null: false
       t.timestamps
+      
     end
   end
 end

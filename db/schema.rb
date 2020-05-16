@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_13_034458) do
+
+ActiveRecord::Schema.define(version: 2020_05_16_014152) do
+
+  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "image", null: false
+    t.bigint "item_id", null: false
+  end
+
+ActiveRecord::Schema.define(version: 2020_05_13_155108) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -24,9 +32,10 @@ ActiveRecord::Schema.define(version: 2020_05_13_034458) do
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
-  create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "item_id"
-    t.string "image"
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_images_on_item_id"
@@ -36,14 +45,23 @@ ActiveRecord::Schema.define(version: 2020_05_13_034458) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "explanation", null: false
-    t.string "condition", null: false
-    t.string "shipping_fee", null: false
-    t.string "shipping_day", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "condition_id", null: false
+    t.integer "shipping_fee_id", null: false
+    t.integer "shipping_day_id", null: false
+    t.integer "prefecture_id", null: false
     t.date "sold_day"
     t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -65,6 +83,7 @@ ActiveRecord::Schema.define(version: 2020_05_13_034458) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
+
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
