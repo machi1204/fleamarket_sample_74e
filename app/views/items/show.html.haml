@@ -13,8 +13,8 @@
       .item-box__price
         %span
           = "#{@item.price.to_s(:delimited)}円"
-          %span.item-box__price--detail
-            = "(税込) #{@item.shipping_fee}"
+        %span.item-box__price--detail
+          = "(税込) #{@item.shipping_fee.name}"
       - if user_signed_in?
         - if @item.user.id == current_user.id
           =link_to '#', class:'item-box__item-change-btn' do
@@ -43,26 +43,28 @@
               %a.category3 （未リンク）ノーカラージャケット
           %tr
             %th ブランド
-            %td （未リンク）
+            %td 
+              -# -if @item.brand !=nil
+              -#   =@item.brand
           %tr
             %th 商品のサイズ
             %td （未リンク）
           %tr
             %th 商品の状態
             %td 
-              = @item.condition
+              = @item.condition.name
           %tr
             %th 配送料の負担
             %td
-              = @item.shipping_fee
+              = @item.shipping_fee.name
           %tr
             %th 発送元の地域
             %td
-              %a.prefecture 青森県
+              = @item.prefecture.name
           %tr
             %th 発送日の目安
             %td
-              = @item.shipping_day
+              = @item.shipping_day.name
       .item-box__option-area
         .item-box__option-area--like-btn
           %i.fa.fa-star
