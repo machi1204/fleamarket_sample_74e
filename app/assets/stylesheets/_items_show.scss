@@ -29,10 +29,10 @@ a {
         font-size: 24px;
         font-weight: bold;
       }
-      &__image {
+      .item-box-image {
         margin: 0 30px;
         align-items: center;
-        &--main {
+        &__main {
           width: 560px;
           height: 346px;
           object-fit: cover;
@@ -40,12 +40,18 @@ a {
         ul {
           margin-top: 10px;
           display: flex;
-          justify-content: start;
+          flex-flow: wrap;
         }
-        &--thumbnail {
+        &__thumbnail {
           width: 20%;
           height: 87px;
+          opacity: 0.4;
           object-fit: cover;
+          &--active {
+            width: 20%;
+            height: 87px;
+            object-fit: cover;
+          }
         }
       }
       &__price {

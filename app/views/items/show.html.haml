@@ -5,15 +5,11 @@
     .item-box
       %h2.item-box__name
         = @item.name
-      .item-box__image
-        = image_tag "a004.png", class: "item-box__image--main"
+      .item-box-image
+        = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
         %ul
-          - @item.images[0..4].each do |image|
-            = image_tag "#{image.image}", class: "item-box__image--thumbnail"
-        %br
-          -if @item.images[5] !=nil
-            - @item.images[5..9].each do |image|
-              = image_tag "#{image.image}", class: "item-box__image--thumbnail"
+          - @item.images.each do |image|
+            = image_tag "#{image.image}", class: "item-box-image__thumbnail"
       .item-box__price
         %span
           = "#{@item.price.to_s(:delimited)}円"
