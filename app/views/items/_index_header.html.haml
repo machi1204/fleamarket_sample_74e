@@ -23,6 +23,8 @@
       %ul.header__inner__nav__rightlist
         - if user_signed_in?  
           %li.logout 
+            = link_to "マイページ", "/users/#{current_user.id}", class: 'btn'
+          %li.logout 
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'
         - else 
           %li.login 

@@ -72,7 +72,7 @@
           = link_to user_path, class: "mypage-nav-list__link" do
             電話番号の確認
         %li
-          = link_to user_path, class: "mypage-nav-list__link" do
+          = link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list__link" do
             ログアウト
         
           
@@ -82,7 +82,7 @@
         = link_to "#" , class: "mypage-user-icon-image" do
           = image_tag "member_photo_noimage_thumb.png", size: "60x60"
           .mypage-user-icon__user-name
-            sho ishihara
+            = current_user.nickname
           .mypage-user-icon__numbers
             .mypage-user-icon__number
               評価 0
