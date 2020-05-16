@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 2020_05_13_155108) do
     t.integer "shipping_day_id", null: false
     t.integer "prefecture_id", null: false
     t.date "sold_day"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -83,4 +85,5 @@ ActiveRecord::Schema.define(version: 2020_05_13_155108) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "images", "items"
+  add_foreign_key "items", "users"
 end

@@ -3,53 +3,66 @@
 .main
   .item-contents
     .item-box
-      %h2.item-box__name product1
-      .item-box__image
-        = image_tag "a004.png", class: "item-box__image--main"
+      %h2.item-box__name
+        = @item.name
+      .item-box-image
+        = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
         %ul
-          = image_tag "a004.png", class: "item-box__image--thumbnail"
-          = image_tag "a005.png", class: "item-box__image--thumbnail"
-          = image_tag "a006.png", class: "item-box__image--thumbnail"
+          - @item.images.each do |image|
+            = image_tag "#{image.image}", class: "item-box-image__thumbnail"
       .item-box__price
-        %span ¥20000
-        .item-box__price--detail
-          %span (税込) 送料込み
-      .item-box__order
-        = link_to "購入画面に進む", item_index_path(@item), class: ".item-box__order__Btn" 
+        %span
+          = "#{@item.price.to_s(:delimited)}円"
+          %span.item-box__price--detail
+            = "(税込) #{@item.shipping_fee}"
+      - if user_signed_in?
+        - if @item.user.id == current_user.id
+          =link_to '#', class:'item-box__item-change-btn' do
+            商品の編集
+          %p or
+          =link_to '#', class:'item-box__item-delete-btn' do
+            この商品を削除する
+        - else 
+          =link_to '#', class:'item-box__order-btn' do
+            購入画面に進む
       .item-box__item-detail
-        親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+        = @item.explanation
       .table
         %table
           %tr
             %th 出品者
-            %td hoge
+            %td
+              = User.find(@item.user_id).nickname
           %tr
             %th カテゴリー
             %td
-              %a.category1 メンズ
+              %a.category1 （未リンク）メンズ
               %br
-              %a.category2 ジャケット/アウター
+              %a.category2 （未リンク）ジャケット/アウター
               %br
-              %a.category3 ノーカラージャケット
+              %a.category3 （未リンク）ノーカラージャケット
           %tr
             %th ブランド
-            %td
+            %td （未リンク）
           %tr
             %th 商品のサイズ
-            %td
+            %td （未リンク）
           %tr
             %th 商品の状態
-            %td 新品/未使用
+            %td 
+              = @item.condition
           %tr
             %th 配送料の負担
-            %td 着払い（購入者負担）
+            %td
+              = @item.shipping_fee
           %tr
             %th 発送元の地域
             %td
               %a.prefecture 青森県
           %tr
             %th 発送日の目安
-            %td 1-2日で発送
+            %td
+              = @item.shipping_day
       .item-box__option-area
         .item-box__option-area--like-btn
           %i.fa.fa-star
@@ -80,6 +93,5 @@
       = link_to 'メンズをもっと見る', '#'
 
 = render 'index_app-banner'
-
 = render 'index_footer'
 

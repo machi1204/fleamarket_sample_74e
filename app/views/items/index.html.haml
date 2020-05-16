@@ -78,22 +78,23 @@
         = link_to "" do
           %h3.product__head__title 新規投稿商品
       .product__lists
-        - @items[0..2].each do |item|
-          .list
-            = link_to item_path(item.id),class: ".list__content" do
-              %figure.list__content__image
-                = item.images.each do |image|
-                  = image_tag image.image.to_s, class: 'img'
-              .list__content__body  
-                %h3.list__content__body__name
-                .list__content__body__details
-                  = item.name
-                  %ul
-                    %li 
-                      = "#{item.price.to_s(:delimited)}円"
-                    %li
-                      %i.fa.fa-star.likeIcon  
-                  %p (税込)
+        -if @items[0] !=nil
+          - @items[0..2].each do |item|
+            .list
+              = link_to item_path(item.id),class: ".list__content" do
+                %figure.list__content__image
+                  = item.images.first(1).each do |image|
+                    = image_tag image.image.to_s, class: 'img'
+                .list__content__body  
+                  %h3.list__content__body__name
+                  .list__content__body__details
+                    = item.name
+                    %ul
+                      %li 
+                        = "#{item.price.to_s(:delimited)}円"
+                      %li
+                        %i.fa.fa-star.likeIcon  
+                    %p (税込))
 
   %section.pickupContainer
     %h2.pickupContainer__head ピックアップブランド
@@ -102,22 +103,23 @@
         = link_to "" do
           %h3.product__head__title 新規投稿商品
       .product__lists
-        - @items[3..5].each do |item|
-          .list
-            = link_to item_path(item.id),class: ".list__content" do
-              %figure.list__content__image
-                = item.images.each do |image|
-                  = image_tag image.image.to_s, class: 'img'
-              .list__content__body  
-                %h3.list__content__body__name
-                .list__content__body__details
-                  = item.name
-                  %ul
-                    %li 
-                      = "#{item.price.to_s(:delimited)}円"
-                    %li
-                      %i.fa.fa-star.likeIcon  
-                  %p (税込)
+        -if @items[3] !=nil
+          - @items[3..5].each do |item|
+            .list
+              = link_to item_path(item.id),class: ".list__content" do
+                %figure.list__content__image
+                  = item.images.first(1).each do |image|
+                    = image_tag image.image.to_s, class: 'img'
+                .list__content__body  
+                  %h3.list__content__body__name
+                  .list__content__body__details
+                    = item.name
+                    %ul
+                      %li 
+                        = "#{item.price.to_s(:delimited)}円"
+                      %li
+                        %i.fa.fa-star.likeIcon  
+                    %p (税込)
 
 = render 'index_app-banner'
 
