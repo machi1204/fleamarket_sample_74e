@@ -61,6 +61,22 @@ a {
           font-weight: normal;
         }
       }
+      &__order {
+        display: block;
+        margin-top: 16px;
+        background: $main_blue;
+        font-size: 24px;
+        color: $white;
+        line-height: 60px;
+        text-align: center;
+        font-weight: 600;
+        -webkit-transition: all ease-out .3s;
+        transition: all ease-out .3s;
+        &__Btn {
+          color: $white;
+          text-decoration: none;
+        }
+      }
       &__item-detail {
         font-size: 18px;
         margin-bottom: 30px;

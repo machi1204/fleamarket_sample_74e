@@ -75,12 +75,14 @@ group :production do
 end
 
 gem 'devise'
-
 gem 'haml-rails'
 gem 'erb2haml'
-
 gem 'font-awesome-sass'
 gem 'carrierwave'
-gem 'mini_magick'
-gem 'jquery-rails'
+gem "jquery-rails"
 gem 'active_hash'
+gem 'mini_magick'
+gem 'payjp'
+gem 'dotenv-rails'
+
+

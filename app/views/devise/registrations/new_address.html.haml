@@ -1,0 +1,52 @@
+.account-page
+  .account-page__header
+    .account-page__header__box
+      =link_to '/'do
+        =image_tag 'logo.png', height: '50px'
+
+  .account-page__signup
+    %h2 会員情報入力
+    = form_with model: @address, local: true do |f|
+      .account-page__signup__templates
+        .account-page__signup__template
+          %label 郵便番号
+          %span{class: "required"} 必須
+        = f.text_field :post_number, {class: "account-page__signup__form", placeholder: "例)123-4567"}
+
+        .account-page__signup__template
+          %label 都道府県
+          %span{class: "required"} 必須
+        = f.select :prefecture, [["--", 0],["北海道", 1],["青森県", 2],["岩手県", 3],["宮城県", 4],["秋田県", 5],["山形県", 6],["福島県", 7],["茨城県", 8],["栃木県", 9],["群馬県", 10],["埼玉県", 11],["千葉県", 12],["東京都", 13],["神奈川県", 14],["新潟県", 15],["富山県", 16],["石川県", 17],["福井県", 18],["山梨県", 19],["長野県", 20],["岐阜県", 21],["静岡県", 22],["愛知県" ,23],["三重県", 24],["滋賀県", 25],["京都府", 26],["大阪府", 27],["兵庫県", 28],["奈良県", 29],["和歌山県", 30],["鳥取県", 31],["島根県", 32],["岡山県", 33],["広島県", 34],["山口県", 35],["徳島県", 36],["香川県", 37],["愛媛県", 38],["高知県", 39],["福岡県", 40],["佐賀県", 41],["長崎県", 42],["熊本県", 43],["大分県", 44],["宮崎県", 45],["鹿児島県", 46],["沖縄県", 47]], {}, {class: "account-page__signup__form-prefecture"}
+
+        .account-page__signup__template
+          %label 市区町村
+          %span{class: "required"} 必須
+        = f.text_field :city, {class: "account-page__signup__form", placeholder: "例)渋谷区"}
+
+        .account-page__signup__template
+          %label 番地
+          %span{class: "required"} 必須
+        = f.text_field :address, {class: "account-page__signup__form", placeholder: "例)道玄坂2-23-12"}
+
+        .account-page__signup__template
+          %label 建物名
+          %span{class: "any"} 任意
+        = f.text_field :apartment, {class: "account-page__signup__form", placeholder: "例)フォンティスビル7F"}
+
+    
+      %input{type: "submit",class: "account-page__signup__template-enter", value: "登録する"}
+
+  .account-page__footer
+
+
+
+
+
+
+-# = form_with model: @address, local: true do |f|
+-#   = f.text_field :post_number, {class: "new_session-wrapper__main__text", placeholder: "例)123-4567"}
+
+-#   %input{type: "submit",class: "new_session-wrapper__main__btn", value: "次へ進む"}
+
+
+      

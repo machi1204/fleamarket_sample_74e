@@ -1,6 +1,7 @@
 class ItemsController < ApplicationController
-  
+
   def index
+    @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
   end
 
   def new
@@ -16,13 +17,17 @@ class ItemsController < ApplicationController
       redirect_to new_item_path
     end
   end
-
+  
   def show
+    @id = params[:id]
+    @item = Item.find(params[:id])
   end
 
   private
   def item_params
     params.require(:item).permit(:name, :price, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id, :user_id,
      images_attributes: [:image, :_destroy, :id])
-  end  
+  end
+  
 end
+
