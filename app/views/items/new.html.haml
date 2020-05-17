@@ -46,7 +46,7 @@
       .new-contents__box__title
         ブランド
         %supan{class: "any"} 任意
-      %input{class: "new-contents__box__input", placeholder: "例）シャネル"} 
+      = f.text_field :brand, {class: "new-contents__box__input", placeholder: "例）シャネル"}
       .new-contents__box__title
         商品の状態
         %supan{class: "required"} 必須

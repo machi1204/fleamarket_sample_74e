@@ -1,6 +1,7 @@
 $(function(){
   var index = [0,1,2,3,4,5,6,7,8,9];
   $(".flexbox").on("click", ".delete", function(){
+    $(document).on('page:load', 'ready')
     var targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);
     if($(this).parent().parent().attr("class") == "new-contents__box__preview-first"){
