@@ -80,9 +80,11 @@ gem 'haml-rails'
 gem 'erb2haml'
 
 gem 'font-awesome-sass'
-
 gem 'carrierwave'
-
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'active_hash'
+gem 'payjp'
+gem 'dotenv-rails'
 gem "ancestry"
 
-gem 'jquery-rails'

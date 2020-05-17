@@ -35,7 +35,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_many :orders
-- has_one :pay
+- has_one :card
 - has_one :address
 # - has_many :likes
 # - has_many :items, through: :likes
@@ -61,14 +61,12 @@ Things you may want to cover:
 
 
 
-## paysテーブル
+## cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, foreign_key: true|
-|card_number|int|null: false|
-|exp_year|int|null: false|
-|exp_month|int|null: false|
-|security_number|int|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 ### Association
 - belongs_to :user
 
