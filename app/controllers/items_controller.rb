@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :edit, :update]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -21,16 +21,40 @@ class ItemsController < ApplicationController
 
   def show
     @id = params[:id]
-    @item = Item.find(params[:id])
   end
 
   def edit
-    @item = Item.find(params[:id])
   end
+
+  def update
+    imageLength = 0
+    deleteImage = 0
+    params[:item][:images_attributes].each do |p|
+      imageLength += 1
+    end
+    for num in 0..9
+      if params[:item][:images_attributes][num.to_s] != nil
+        if params[:item][:images_attributes][num.to_s][:_destroy] == "1"
+          deleteImage += 1
+        end
+      end
+    end
+    if @item.valid? && !@item.images.empty? && imageLength != deleteImage
+      @item.update(item_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path(@item)
+    end
+  end
+
+  def set_images
+    @images = Image.where(item_id: params[:id])
+  end
+
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
+    params.require(:item).permit(:name, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
      images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
   

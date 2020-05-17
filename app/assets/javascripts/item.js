@@ -1,5 +1,22 @@
 $(function(){
   var index = [0,1,2,3,4,5,6,7,8,9];
+  var request = $("#image-label").attr("action");
+  if(request != undefined && request.indexOf("edit") != -1){
+    $.ajax({
+      url: "/items/set_images",
+      data: {id:request.replace(/[^0-9]/g, '')},
+      dataType: "json"
+    }).done(function(data){
+      data.images.forEach(function(d){
+        buildImage(d.image.url);
+      })
+      $(".hidden").hide();
+      $(".flexbox").on("click", ".delete", function(){
+        var targetDeleteIndex = Number($(this).attr("index"));
+        $(`#item_images_attributes_${targetDeleteIndex}__destroy`).prop('checked', true);
+      })
+    })
+  }
   $(".flexbox").on("click", ".delete", function(){
     var targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);

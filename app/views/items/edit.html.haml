@@ -1,5 +1,5 @@
 = render "new-header"
-= form_with model: @item, url: items_path , local: true do |f|
+= form_with model: @item, url: item_path , local: true do |f|
   .new-contents
     -# 商品画像
     .new-contents__box
@@ -19,6 +19,7 @@
               または、クリックしてファイルをアップロード
           = f.fields_for :images do |i|
             = i.file_field :image, {class: "file_field"}
+            = i.check_box :_destroy, {class: "hidden"}
     %hr
     -# 商品説明
     .new-contents__box
@@ -46,7 +47,7 @@
       .new-contents__box__title
         ブランド
         %supan{class: "any"} 任意
-      %input{class: "new-contents__box__input", placeholder: "例）シャネル"} 
+      = f.text_field :brand, {class: "new-contents__box__input", placeholder: "例）シャネル"} 
       .new-contents__box__title
         商品の状態
         %supan{class: "required"} 必須
@@ -78,7 +79,7 @@
         %supan{class: "required"} 必須
         %supan{class: "yen"} ¥
         = f.text_field :price, {class: "new-contents__box__input-yen", placeholder: 0}
-        = f.submit "出品する", {class:"new-contents__box__input-yen__submit"}
+        = f.submit "編集完了", {class:"new-contents__box__input-yen__submit"}
       .new-contents__box__attention
         禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render "new-footer"

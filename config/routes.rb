@@ -16,6 +16,9 @@ Rails.application.routes.draw do
     get 'index', to: 'orders#index'
     post 'pay', to: 'orders#pay'
     get 'done', to: 'orders#done'
+    collection do
+      get 'set_images'
+    end
   end
   resources :pays, only: [:new, :create, :show, :destroy] do
     collection do
