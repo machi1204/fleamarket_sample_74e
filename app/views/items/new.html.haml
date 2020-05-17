@@ -28,16 +28,18 @@
   %hr
   -# 商品詳細
   .new-contents__box
-    .new-contents__box__main-title
-      商品の詳細
-    .new-contents__box__title
-      カテゴリー
-      %supan{class: "required"} 必須
-    %select{class: "new-contents__box__select"}
-      %option{value: ""} 選択してください
-      %option{value: ""} カテゴリー１
-      %option{value: ""} カテゴリー２
-      %option{value: ""} カテゴリー３
+    = form_with(model: @item, local: true) do |form|
+      .new-contents__box__main-title
+        商品の詳細
+      .new-contents__box__details
+        .new-contents__box__title
+          カテゴリー
+          %supan{class: "required"} 必須
+        .new-contents__box__select
+          = form.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '---'}, {class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
+          -# %i.fas.fa-chevron-down
+        .error-messages#error-category
+
     .new-contents__box__title
       ブランド
       %supan{class: "any"} 任意

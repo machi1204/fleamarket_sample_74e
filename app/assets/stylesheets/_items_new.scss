@@ -13,7 +13,7 @@
   &__box{
     background-color: #ffffff;
     width: 650px;
-    height: 320px;
+    height: auto;
     margin: 0 auto;
     padding: 40px;
     
@@ -85,10 +85,14 @@
     &__select{
       height: 48px;
       width: inherit;
-      padding: 0 16px;
-      border: 1px solid #ccc;
+      // padding: 0 16px;
+      // border: 1px solid #ccc;
       box-sizing: border-box;
       margin-bottom: 24px;
+      &__input{
+        width: 100%;
+        margin: 0;
+      }
     }
     
     &__input-yen{
