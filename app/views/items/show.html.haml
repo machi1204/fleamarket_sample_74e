@@ -23,7 +23,7 @@
           =link_to '#', class:'item-box__item-delete-btn' do
             この商品を削除する
         - else 
-          =link_to '#', class:'item-box__order-btn' do
+          =link_to item_index_path(@item), class:'item-box__order-btn' do
             購入画面に進む
       .item-box__item-detail
         = @item.explanation
