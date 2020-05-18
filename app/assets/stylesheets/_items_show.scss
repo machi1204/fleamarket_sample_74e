@@ -24,35 +24,36 @@ a {
   .item-box {
     padding: 24px 40px 40px;
     background-color: $white;
-      h2 {
-        text-align: center;
-        font-size: 24px;
-        font-weight: bold;
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .item-box-image {
+      margin: 0 30px;
+      align-items: center;
+      &__main {
+        width: 560px;
+        height: 346px;
+        object-fit: cover;
       }
-      .item-box-image {
-        margin: 0 30px;
-        align-items: center;
-        &__main {
-          width: 560px;
-          height: 346px;
-          object-fit: cover;
-        }
-        ul {
-          margin-top: 10px;
-          display: flex;
-          flex-flow: wrap;
-        }
-        &__thumbnail {
-          width: 20%;
-          height: 87px;
-          opacity: 0.4;
-          object-fit: cover;
-        }
-        .active {
-          width: 20%;
-          height: 87px;
-          object-fit: cover;
-        }
+      ul {
+        margin-top: 10px;
+        display: flex;
+        flex-flow: wrap;
+      }
+      &__thumbnail {
+        width: 20%;
+        height: 87px;
+        opacity: 0.4;
+        object-fit: cover;
+      }
+      .active {
+        width: 20%;
+        height: 87px;
+        opacity: 1;
+        object-fit: cover;
+      }
       }
       &__price {
         margin: 24px 0;
