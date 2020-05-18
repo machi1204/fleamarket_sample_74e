@@ -8,8 +8,13 @@
       .item-box-image
         = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
         %ul
-          - @item.images.each do |image|
+          - @item.images.each.with_index do |image|
             = image_tag "#{image.image}", class: "item-box-image__thumbnail"
+          -# - @item.images.each.with_index do |image,i|
+          -#   -if i == 0
+          -#     = image_tag "#{image.image}", class: "item-box-image__thumbnail--active", index: i
+          -#   - else
+          -#     = image_tag "#{image.image}", class: "item-box-image__thumbnail", index: i
       .item-box__price
         %span
           = "#{@item.price.to_s(:delimited)}円"

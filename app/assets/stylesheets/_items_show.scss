@@ -47,11 +47,11 @@ a {
           height: 87px;
           opacity: 0.4;
           object-fit: cover;
-          &--active {
-            width: 20%;
-            height: 87px;
-            object-fit: cover;
-          }
+        }
+        .active {
+          width: 20%;
+          height: 87px;
+          object-fit: cover;
         }
       }
       &__price {
