@@ -1,6 +1,6 @@
 $(function(){
-  var index = [0,1,2,3,4,5,6,7,8,9];
-  var request = $("#image-label").attr("action");
+  const index = [0,1,2,3,4,5,6,7,8,9];
+  const request = $("#image-label").attr("action");
   if(request != undefined && request.indexOf("edit") != -1){
     $.ajax({
       url: "/items/set_images",
@@ -12,13 +12,13 @@ $(function(){
       })
       $(".hidden").hide();
       $(".flexbox").on("click", ".delete", function(){
-        var targetDeleteIndex = Number($(this).attr("index"));
+        const targetDeleteIndex = Number($(this).attr("index"));
         $(`#item_images_attributes_${targetDeleteIndex}__destroy`).prop('checked', true);
       })
     })
   }
   $(".flexbox").on("click", ".delete", function(){
-    var targetIndex = Number($(this).attr("index"));
+    const targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);
     if($(this).parent().parent().attr("class") == "new-contents__box__preview-first"){
       $(".new-contents__box__preview .new-contents__box__preview__image:first").appendTo(".new-contents__box__preview-first");
@@ -41,7 +41,7 @@ $(function(){
     $(`#item_images_attributes_${targetIndex}_image`).remove();
     $(".flexbox").append(`<input class="file-field" type="file" name="item[images_attributes][${targetIndex}][image]" id="item_images_attributes_${targetIndex}_image">`);
   })
-  var buildImage = function(url){
+  const buildImage = function(url){
     if(index.length != 0){
       $(".new-contents__box__preview").append(`
         <div class="new-contents__box__preview__image">
@@ -76,7 +76,7 @@ $(function(){
     }
   }
   $(".flexbox").on("change", function(e){
-    var blob = window.URL.createObjectURL(e.target.files[0]);
+    const blob = window.URL.createObjectURL(e.target.files[0]);
     buildImage(blob);
   })
 })
