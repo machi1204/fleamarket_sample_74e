@@ -1,0 +1,40 @@
+.card-info {
+  width: 700px;
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  &__main {
+    width: 700px;
+    &__container {
+      h2 {
+        font-size: 24px;
+        padding: 8px 24px;
+      }
+      background-color: $white;
+      &__inner {
+        padding: 64px;
+        border-top: 1px solid #f5f5f5;
+        border-bottom: 1px solid #f5f5f5;
+        section {
+          ul {
+            li {
+              display: flex;
+              .delete-Btn {
+                padding-left: 300px;
+                
+                button {
+                  background-color: $white;
+                  color : red;
+                  
+                }
+              }
+
+            }
+
+          };
+        }
+
+      }
+
+    }
+  }
+}

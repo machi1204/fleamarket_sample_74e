@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show]
+  #before_action :set_item, only: [:show]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
   end
   
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id])
   end
 
 end
