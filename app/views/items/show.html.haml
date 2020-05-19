@@ -23,7 +23,7 @@
         %span
           = "#{@item.price.to_s(:delimited)}円"
         %span.item-box__price--detail
-          = "(税込) #{@item.shipping_fee.name}"
+          = "(税込)　#{@item.shipping_fee.name}"
       - if @item.sold_day == nil
         - if user_signed_in?
           - if @item.user.id == current_user.id
