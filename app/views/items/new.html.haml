@@ -6,6 +6,7 @@
       .new-contents__box__title
         出品画像
         %span{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "image"}
       .new-contents__box__image-text
         最大10枚までアップロードできます
       .flexbox
@@ -25,10 +26,12 @@
       .new-contents__box__title
         商品名
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "name"}
       = f.text_field :name, {class: "new-contents__box__input", placeholder: "40文字まで"}
       .new-contents__box__title
         商品の説明
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "explanation"}
       = f.text_area :explanation, {class: "new-contents__box__textarea", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意など）\n\n例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"} 
     %hr
     -# 商品詳細
@@ -38,6 +41,7 @@
       .new-contents__box__title
         カテゴリー
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: ""}
       %select{class: "new-contents__box__select"}
         %option{value: ""} 選択してください
         %option{value: ""} カテゴリー１
@@ -50,6 +54,7 @@
       .new-contents__box__title
         商品の状態
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "condition_id"}
       = f.collection_select :condition_id, Condition.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
     %hr
       -# 発送方法
@@ -59,14 +64,17 @@
       .new-contents__box__title
         発送量の負担
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "shipping_fee_id"}
       = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
       .new-contents__box__title
         発送元の地域
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "prefecture_id"}
       = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
       .new-contents__box__title
         発送までの日数
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "shipping_day_id"}
       = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
     %hr
       -# 販売価格
@@ -76,6 +84,7 @@
       .new-contents__box__title
         販売価格
         %supan{class: "required"} 必須
+        = render partial: 'layouts/error_messages', locals: {item: @item, column: "price"}
         %supan{class: "yen"} ¥
         = f.text_field :price, {class: "new-contents__box__input-yen", placeholder: 0}
         = f.submit "出品する", {class:"new-contents__box__input-yen__submit"}
