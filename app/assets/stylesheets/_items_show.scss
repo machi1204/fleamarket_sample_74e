@@ -205,10 +205,10 @@ a {
 
 #modal-content {
   width: 50% ;
-	margin: 0 ;
-	border: 2px solid #aaa ;
-	background: #fff ;
-	position: fixed ;
+  margin: 0 ;
+  border: 2px solid #aaa ;
+  background: #fff ;
+  position: fixed ;
   display: none ;
   padding-top: 10px;
   z-index: 2 ;
@@ -216,6 +216,9 @@ a {
   span {
     font-weight: bold;
     font-size: 20px;
+  }
+  p {
+    padding-bottom: 20px; 
   }
 }
 

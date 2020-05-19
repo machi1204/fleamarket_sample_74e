@@ -94,10 +94,7 @@
 %aside#modal-content
   %span.modal-tilte 確認
   %p 削除すると二度と復活できません。
-  %br
   %p 本当に削除しますか？
-  %br
-  %br
   .modal-content__footer
     %a#modal-close.button-link キャンセル
     = link_to item_path(@item), method: :delete, class: "button-link", id: "modal-close" do
