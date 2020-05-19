@@ -6,25 +6,37 @@
       %h2.item-box__name
         = @item.name
       .item-box-image
-        = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
-        %ul
-          - @item.images.each.with_index do |image|
-            = image_tag "#{image.image}", class: "item-box-image__thumbnail"
+        - if @item.sold_day == nil
+          = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
+          %ul
+            - @item.images.each.with_index do |image|
+              = image_tag "#{image.image}", class: "item-box-image__thumbnail"
+        - else
+          .item-box-image__sold-mark
+            .item-box-image__sold-mark--text
+              SOLD
+          = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
+          %ul
+            - @item.images.each.with_index do |image|
+              = image_tag "#{image.image}", class: "item-box-image__thumbnail"
       .item-box__price
         %span
           = "#{@item.price.to_s(:delimited)}円"
         %span.item-box__price--detail
           = "(税込) #{@item.shipping_fee.name}"
-      - if user_signed_in?
-        - if @item.user.id == current_user.id
-          =link_to '#', class:'item-box__item-change-btn' do
-            商品の編集
-          %p or
-          =link_to '#', class:'item-box__item-delete-btn' do
-            この商品を削除する
-        - else 
-          =link_to '#', class:'item-box__order-btn' do
-            購入画面に進む
+      - if @item.sold_day == nil
+        - if user_signed_in?
+          - if @item.user.id == current_user.id
+            =link_to '#', class:'item-box__item-change-btn' do
+              商品の編集
+            %p or
+            =link_to '#', class:'item-box__item-delete-btn' do
+              この商品を削除する
+          - else 
+            =link_to '#', class:'item-box__order-btn' do
+              購入画面に進む
+      -else
+        %p.item-box__sold-tag 売り切れました
       .item-box__item-detail
         = @item.explanation
       .table

@@ -32,6 +32,24 @@ a {
     .item-box-image {
       margin: 0 30px;
       align-items: center;
+      &__sold-mark {
+        width: 0;
+        height: 0;
+        border-top: 80px solid $main_blue ;
+        border-right: 80px solid transparent;
+        border-bottom: 80px solid transparent;
+        border-left: 80px solid $main_blue ;
+        z-index:100;
+        position: absolute;
+        &--text {
+          transform: rotate(-45deg);
+          font-size: 28px;
+          margin:-25px 0px 0px -55px;
+          color: #fff;
+          letter-spacing: 2px;
+          font-weight: 600;
+        }
+      }
       &__main {
         width: 560px;
         height: 346px;
@@ -100,6 +118,20 @@ a {
         background-color: $main_blue;
         text-align: center;
         margin-bottom: 30px;
+      }
+      &__sold-tag {
+        display: block;
+        width: 620px;
+        height: 60px;
+        font-weight: bold;
+        color: $white;
+        line-height: 60px;
+        background-color: #aaa;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      p {
+        font-size: 30px;
       }
       &__item-detail {
         font-size: 18px;
