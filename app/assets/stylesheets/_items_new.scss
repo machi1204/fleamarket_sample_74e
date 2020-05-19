@@ -111,7 +111,7 @@
     }
     &__input{
       height: 48px;
-      width: inherit;
+      width: 100%;
       padding: 0 16px;
       border: 1px solid #ccc;
       box-sizing: border-box;
@@ -121,7 +121,7 @@
     }
     &__textarea{
       height: 150px;
-      width: inherit;
+      width: 100%;
       padding: 13px 16px;
       border: 1px solid #ccc;
       box-sizing: border-box;
@@ -129,7 +129,7 @@
     }
     &__select{
       height: 48px;
-      width: inherit;
+      width: 100%;
       padding: 0 16px;
       border: 1px solid #ccc;
       box-sizing: border-box;
