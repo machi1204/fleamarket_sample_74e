@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  #before_action :set_item, only: [:show]
+  before_action :set_item, only: [:show, :destroy]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -20,8 +20,14 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @id = params[:id]
-    @item = Item.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def destroy
+    @item.destroy
+    redirect_to user_path
   end
 
   private
@@ -31,7 +37,7 @@ class ItemsController < ApplicationController
   end
   
   def set_item
-    @item = Item.find(params[:item_id])
+    @item = Item.find(params[:id])
   end
 
 end
