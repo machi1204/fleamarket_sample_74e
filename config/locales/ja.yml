@@ -10,26 +10,4 @@ ja:
         prefecture_id: 発送元の地域
         shipping_day_id: 発送までの日数
         price: 価格
-      item/images:
-        image: 商品画像
-
-
-# ja:
-#   activerecord:
-#     models:
-#       item:
-#     attributes:
-#       item:
-#         name: 商品名
-#         explanation: 商品の説明
-#         brand: ブランド
-#         condition_id: 商品の状態
-#         shipping_fee_id: 発送量の負担
-#         prefecture_id: 発送元の地域
-#         shipping_day_id: 発送までの日数
-#         price: 価格
-#     attributes:
-#       image:
-#         image: 商品画像
-
-        
+        images: 画像
