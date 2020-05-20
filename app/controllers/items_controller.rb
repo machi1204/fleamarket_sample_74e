@@ -41,9 +41,11 @@ class ItemsController < ApplicationController
     end
     if @item.valid? && !@item.images.empty? && imageLength != deleteImage
       @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '出品した商品を編集しました'
     else
-      redirect_to edit_item_path(@item)
+      flash.now[:notice] = '必須項目を入力してください'
+      @item.images.build
+      render :edit
     end
   end
 
