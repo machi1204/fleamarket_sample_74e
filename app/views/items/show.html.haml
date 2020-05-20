@@ -6,21 +6,16 @@
       %h2.item-box__name
         = @item.name
       .item-box-image
-        - if @item.sold_day == nil
-          .item-box-image__main-image-box
-            = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
-          %ul
-            - @item.images.each.with_index do |image|
-              = image_tag "#{image.image}", class: "item-box-image__thumbnail"
-        - else
+        - if @item.sold_day != nil
           .item-box-image__sold-mark
             .item-box-image__sold-mark--text
               SOLD
-          .item-box-image__main-image-box
-            = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
-          %ul
-            - @item.images.each.with_index do |image|
-              = image_tag "#{image.image}", class: "item-box-image__thumbnail"
+        - else
+        .item-box-image__main-image-box
+          = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
+        %ul
+          - @item.images.each.with_index do |image|
+            = image_tag "#{image.image}", class: "item-box-image__thumbnail"
       .item-box__price
         %span
           = "#{@item.price.to_s(:delimited)}円"
