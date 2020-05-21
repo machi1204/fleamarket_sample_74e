@@ -20,10 +20,9 @@
           =link_to '#', class:'item-box__item-change-btn' do
             商品の編集
           %p or
-          =link_to '#', class:'item-box__item-delete-btn' do
-            この商品を削除する
+          %a#modal-open.item-box__item-delete-btn この商品を削除する
         - else 
-          =link_to '#', class:'item-box__order-btn' do
+          =link_to item_index_path(@item), class:'item-box__order-btn' do
             購入画面に進む
       .item-box__item-detail
         = @item.explanation
@@ -97,6 +96,15 @@
 
     .relayted-items
       = link_to 'メンズをもっと見る', '#'
+
+%aside#modal-content
+  %span.modal-tilte 確認
+  %p 削除すると二度と復活できません。
+  %p 本当に削除しますか？
+  .modal-content__footer
+    %a#modal-close.button-link キャンセル
+    = link_to item_path(@item), method: :delete, class: "button-link", id: "modal-close" do
+      削除
 
 = render 'index_app-banner'
 = render 'index_footer'
