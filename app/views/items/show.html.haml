@@ -59,19 +59,18 @@
     .comment-box
       .comment-container
         - @item.comments.each do |comment|
-          %li.comment-block
-            .comment-user__nickname
+          %ul.comment-block.clearfix
+            %li.comment-user__nickname
               = comment.user.nickname
-            .comment-user
-              .comment-user__icon
-                = image_tag "member_photo_noimage_thumb.png", size: "40x40"
-            .comment-body
+            %li.comment-body
               .comment-body__text
                 = comment.comment
                 %br
                 .comment-body__text--time
                   %i.fa.fa-clock
                   = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
+            %li.comment-user__icon
+              = image_tag "member_photo_noimage_thumb.png", size: "40x40"
  
       .comment-textform
         = form_with(model: [@item, @comment], local: true, class: "comment-form") do |form|
