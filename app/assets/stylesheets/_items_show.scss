@@ -137,6 +137,43 @@ a {
         border-radius: 100px;
       }
     }
+    .comment-body {
+      background-color: $table_gray;
+      font-size: 14px;
+      height: 100px;
+      margin: 1.5em 0;
+      // overflow: hidden;
+      border-radius: 12px;
+      width: 90%;
+      float: right;
+      position: relative;
+      &__text {
+        color: royalblue;
+        // display: inline-block;
+        // margin: 5px 0 0 35px;
+        padding: 13px;
+        // position: relative;
+        &--time {
+         position: absolute;
+         right: 20px;
+         top:80px;
+        }
+      }
+      &__text::before{
+        content: "";
+        // display: inline-block;
+        position: absolute;
+        top: 50%; 
+        left: -23px;
+        margin-top: -23px;
+        border: 11px solid transparent;
+        border-right: 14px solid $table_gray;
+        // background-color: white;
+      }
+    }
+    .comment-user {
+      font-weight: bold;
+    }
   }
 
   ul.nav-item-link {
