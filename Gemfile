@@ -86,4 +86,6 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'payjp'
 gem 'dotenv-rails'
+gem "gretel"
 gem "ancestry"
+
