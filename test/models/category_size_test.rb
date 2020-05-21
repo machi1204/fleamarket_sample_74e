@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PayTest < ActiveSupport::TestCase
+class CategorySizeTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

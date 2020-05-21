@@ -11,7 +11,7 @@
         = link_to new_user_registration_path do
           %input{class: "account-page__create-btn", type: "submit", value:"新規会員登録"}
 
-    = form_with model:resource, url: session_path(resource_name) do |f|
+    = form_with model:@user, url: user_session_path , local: true do |f|
       .account-page__signin__template
         %br
         -# %label メールアドレス

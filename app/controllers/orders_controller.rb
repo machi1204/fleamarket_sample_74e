@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
+    @image = Image.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
     if card.blank?
       redirect_to controller: "card", action: "new"
@@ -14,14 +15,16 @@ class OrdersController < ApplicationController
   end
 
   def pay
-    @it = Item.find(params[:item_id]).price
+    @item = Item.find(params[:item_id])
     card = Card.where(user_id: current_user.id).first
     Payjp.api_key = ENV['PAYJP_PRIVATE_KEY']
     Payjp::Charge.create(
-    :amount => @it,
+    :amount => @item.price,
     :customer => card.customer_id,
     :currency => 'jpy', 
   )
+    @item.update(sold_day: Time.current)
+
   redirect_to action: 'done' 
   end
 end

@@ -20,7 +20,13 @@
         max-width: 343px;
         margin: 0 auto;
         .item-box {
+          display: flex;
+          justify-content: space-around;
           &__detail {
+            line-height: 50px;
+            padding-left: 70px;
+            font-weight: bold;
+            font-size: 24px;
           }
         }
       }
