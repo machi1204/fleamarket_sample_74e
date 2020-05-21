@@ -17,10 +17,10 @@
           - @item.images.each.with_index do |image|
             = image_tag "#{image.image}", class: "item-box-image__thumbnail"
       .item-box__price
-        %span
-          = "#{@item.price.to_s(:delimited)}円"
+        = "#{@item.price.to_s(:delimited)}円"
+        %span (税込)
         %span.item-box__price--detail
-          = "(税込)　#{@item.shipping_fee.name}"
+          = "#{@item.shipping_fee.name}"
       - if @item.sold_day == nil
         - if user_signed_in?
           - if @item.user.id == current_user.id

@@ -58,10 +58,9 @@ a {
       &__main {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
       }
       ul {
-        margin-top: 10px;
         display: flex;
         flex-flow: wrap;
       }
@@ -81,10 +80,12 @@ a {
         font-family: Helvetica;
         font-size: 46px;
         font-weight: bold;
-        &--detail {
-          display: block;
+        span {
           font-size: 16px;
           font-weight: normal;
+        }
+        &--detail {
+          display: block;
         }
       }
       &__item-change-btn {
