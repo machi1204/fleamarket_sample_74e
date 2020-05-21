@@ -43,6 +43,7 @@
         .new-contents__box__title
           カテゴリー
           %supan{class: "required"} 必須
+          = render partial: 'layouts/error_messages', locals: {item: @item, column: "category_id"}
         .new-contents__box__select
           = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '選択して下さい'}, {class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
           -# %i.fas.fa-chevron-down
