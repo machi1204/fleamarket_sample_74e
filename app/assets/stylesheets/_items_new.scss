@@ -48,9 +48,8 @@
       }
       .yen{
         position: absolute;
-        top: 38px;
+        top: 15px;
         left: 375px;
-        
       }
       
     }
@@ -112,7 +111,7 @@
     }
     &__input{
       height: 48px;
-      width: 100%;
+      width: inherit;
       padding: 0 16px;
       border: 1px solid #ccc;
       box-sizing: border-box;
@@ -122,7 +121,7 @@
     }
     &__textarea{
       height: 150px;
-      width: 100%;
+      width: inherit;
       padding: 13px 16px;
       border: 1px solid #ccc;
       box-sizing: border-box;
@@ -130,7 +129,9 @@
     }
     &__select{
       height: 48px;
-      width: 100%;
+      width: inherit;
+      // padding: 0 16px;
+      // border: 1px solid #ccc;
       box-sizing: border-box;
       margin-bottom: 24px;
       &__input{
@@ -147,7 +148,7 @@
       border: 1px solid #ccc;
       box-sizing: border-box;
       border-radius: 4px;
-      margin-top: 24px;
+      margin-bottom: 24px;
       float: right;
       &__submit{
         background-color: $main_blue;
@@ -184,9 +185,4 @@
 
   }
 
-}
-.erorr-message{
-  font-size: 10px;
-  color: red;
-  display: contents;
 }

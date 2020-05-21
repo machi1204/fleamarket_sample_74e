@@ -1,6 +1,0 @@
-- if @item.errors.any?
-  - unless @item.valid?
-    - if errors = @item.errors.full_messages_for(column.to_sym)
-      .erorr-message
-        - errors.each do |error|
-          = error

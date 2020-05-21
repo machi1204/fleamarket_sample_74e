@@ -1,8 +1,7 @@
 $(function(){
-  const index = [0,1,2,3,4,5,6,7,8,9];
+  var index = [0,1,2,3,4,5,6,7,8,9];
   $(".flexbox").on("click", ".delete", function(){
-    $(document).on('page:load', 'ready')
-    const targetIndex = Number($(this).attr("index"));
+    var targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);
     if($(this).parent().parent().attr("class") == "new-contents__box__preview-first"){
       $(".new-contents__box__preview .new-contents__box__preview__image:first").appendTo(".new-contents__box__preview-first");
@@ -25,7 +24,7 @@ $(function(){
     $(`#item_images_attributes_${targetIndex}_image`).remove();
     $(".flexbox").append(`<input class="file-field" type="file" name="item[images_attributes][${targetIndex}][image]" id="item_images_attributes_${targetIndex}_image">`);
   })
-  const buildImage = function(url){
+  var buildImage = function(url){
     if(index.length != 0){
       $(".new-contents__box__preview").append(`
         <div class="new-contents__box__preview__image">
@@ -60,7 +59,7 @@ $(function(){
     }
   }
   $(".flexbox").on("change", function(e){
-    const blob = window.URL.createObjectURL(e.target.files[0]);
+    var blob = window.URL.createObjectURL(e.target.files[0]);
     buildImage(blob);
   })
 })
