@@ -6,24 +6,34 @@
       %h2.item-box__name
         = @item.name
       .item-box-image
-        = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
+        - if @item.sold_day != nil
+          .item-box-image__sold-mark
+            .item-box-image__sold-mark--text
+              SOLD
+        - else
+        .item-box-image__main-image-box
+          = image_tag "#{@item.images[0].image}", class: "item-box-image__main"
         %ul
-          - @item.images.each do |image|
+          - @item.images.each.with_index do |image|
             = image_tag "#{image.image}", class: "item-box-image__thumbnail"
       .item-box__price
-        %span
-          = "#{@item.price.to_s(:delimited)}円"
-          %span.item-box__price--detail
-            = "(税込) #{@item.shipping_fee}"
-      - if user_signed_in?
-        - if @item.user.id == current_user.id
-          =link_to '#', class:'item-box__item-change-btn' do
-            商品の編集
-          %p or
-          %a#modal-open.item-box__item-delete-btn この商品を削除する
-        - else 
-          =link_to item_index_path(@item), class:'item-box__order-btn' do
-            購入画面に進む
+        = "#{@item.price.to_s(:delimited)}円"
+        %span (税込)
+        %span.item-box__price--detail
+          = "#{@item.shipping_fee.name}"
+      - if @item.sold_day == nil
+        - if user_signed_in?
+          - if @item.user.id == current_user.id
+            =link_to '#', class:'item-box__item-change-btn' do
+              商品の編集
+            %p or
+            =link_to '#', class:'item-box__item-delete-btn' do
+              この商品を削除する
+          - else 
+            =link_to '#', class:'item-box__order-btn' do
+              購入画面に進む
+      -else
+        %p.item-box__sold-tag 売り切れました
       .item-box__item-detail
         = @item.explanation
       .table
@@ -35,33 +45,41 @@
           %tr
             %th カテゴリー
             %td
-              %a.category1 （未リンク）メンズ
+              %a.category1
+                = @item.category.parent.parent.name
               %br
-              %a.category2 （未リンク）ジャケット/アウター
+              %a.category2
+                = @item.category.parent.name
               %br
-              %a.category3 （未リンク）ノーカラージャケット
+              %a.category3
+                = @item.category.name
           %tr
             %th ブランド
-            %td （未リンク）
+            %td 
+              -# -if @item.brand !=nil
+              -#   =@item.brand
           %tr
             %th 商品のサイズ
-            %td （未リンク）
+            %td 
+              - if @item.item_size_id?
+                = @item.item_size.size
+
           %tr
             %th 商品の状態
             %td 
-              = @item.condition
+              = @item.condition.name
           %tr
             %th 配送料の負担
             %td
-              = @item.shipping_fee
+              = @item.shipping_fee.name
           %tr
             %th 発送元の地域
             %td
-              %a.prefecture 青森県
+              = @item.prefecture.name
           %tr
             %th 発送日の目安
             %td
-              = @item.shipping_day
+              = @item.shipping_day.name
       .item-box__option-area
         .item-box__option-area--like-btn
           %i.fa.fa-star
@@ -82,11 +100,14 @@
           %i.fa.fa-comment コメントする
 
     %ul.nav-item-link.clreafix
-      = link_to '#', class: "nav-item-prev" do
-        %i.fa.fa-angle-left  前の商品
-      = link_to '#', class: "nav-item-next" do
-        後ろの商品
-        %i.fa.fa-angle-right
+      - if @item.previous.present? 
+        = link_to item_path(@item.previous), class: "nav-item-prev" do
+          %i.fa.fa-angle-left
+          前の商品
+      - if @item.next.present? 
+        = link_to item_path(@item.next), class: "nav-item-next" do
+          後ろの商品
+          %i.fa.fa-angle-right
 
     .relayted-items
       = link_to 'メンズをもっと見る', '#'

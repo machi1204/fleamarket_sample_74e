@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
+
   belongs_to :user
+  belongs_to :category
   has_many :images, dependent: :destroy
+  belongs_to :item_size, optional: true
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_fee 
@@ -14,6 +17,12 @@ class Item < ApplicationRecord
   validates :images, presence: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
 
 end
