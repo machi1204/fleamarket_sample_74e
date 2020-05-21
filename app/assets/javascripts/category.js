@@ -7,7 +7,6 @@ $(function(){
 
   // 親カテゴリー選択後のイベント
   $('#category-select-parent').on('change', function(){
-    console.log("1")
     let parentCategoryId = $(this).val();
     if (parentCategoryId == ''){
       $('#select-children-box').remove();
@@ -44,7 +43,6 @@ $(function(){
 
   // 子カテゴリー選択後のイベント
   $('.new-contents__box__details').on('change', '#category-select-children', function(){
-    console.log("2")
     let childrenCategoryId = $(this).val();
     if (childrenCategoryId == ''){
       $('#select-grandchildren-box').remove();
@@ -77,4 +75,50 @@ $(function(){
     }
   });
 
+  $(function(){
+    function appendSizeOption(size){
+      var html = `<option value="${size.id}">${size.size}</option>`;
+      return html;
+    }
+
+    function appendSizeBox(insertHTML){
+      var sizeSelectHtml = '';
+      sizeSelectHtml = `<div class="new-contents__box__select" id="size_wrapper">
+                          <label class="new-contents__box__select__label" for="サイズ">
+                            <select class="new-contents__box__select__input" id="size" required="required" name="item[item_size_id]">
+                              <option value="">選択して下さい</option>
+                              ${insertHTML}
+                            </select>
+                          </label>
+                        </div>`;
+      $('.new-contents__box__details').append(sizeSelectHtml);                         
+    }
+    $('.new-contents__box__details').on('change', '#category-select-grandchildren', function(){
+      let grandchildrenCategoryId = $(this).val();
+      if (grandchildrenCategoryId != ""){
+      $.ajax({
+        url: '/items/get_size',
+        type: 'GET',
+        data: { grandchild_id: grandchildrenCategoryId },
+        dataType: 'json'
+      })
+      .done(function(sizes){
+        $('#size_wrapper').remove();
+        if (sizes.length != 0) {
+          var insertHTML = '';
+            sizes.forEach(function(size){
+              insertHTML += appendSizeOption(size);
+            });
+            appendSizeBox(insertHTML);
+        }
+      })
+      .fail(function(){
+        alert('サイズ取得に失敗しました');
+      })
+    }else{
+      $('#size_wrapper').remove();
+    }
+  });
+
+  });
 });

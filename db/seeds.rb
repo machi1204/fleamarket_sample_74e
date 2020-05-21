@@ -6,6 +6,31 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+
+# items_sizes テーブルのサイズデータ
+
+clothes_size = ItemSize.create(size: "洋服のサイズ")
+clothes_size_1 = clothes_size.children.create([{size: "XXS以下"},{size: "XS(SS)"},{size: "S"},{size: "M"},{size: "L"},{size: "XL(LL)"},{size: "2XL(3L)"},{size: "3XL(4L)"},{size: "4XL(5L)以上"},{size: "FREE SIZE"}])
+
+mens_shoes_size = ItemSize.create(size: "メンズ靴のサイズ")
+mens_shoes_size_1 = mens_shoes_size.children.create([{size: "23.5cm以下"},{size: "24cm"},{size: "24.5cm"},{size: "25cm"},{size: "25.5cm"},{size: "26cm"},{size: "26.5cm"},{size: "27cm"},{size: "27.5cm"},{size: "28cm"},{size: "28.5cm"},{size: "29cm"},{size: "29.5cm"},{size: "30cm"},{size: "30.5cm"},{size: "31cm以上"}])
+
+ladys_shoes_size = ItemSize.create(size: "レディース靴のサイズ")
+ladys_shoes_size_1 = ladys_shoes_size.children.create([{size: "20cm以下"},{size: "20.5cm"},{size: "21cm"},{size: "21.5cm"},{size: "22cm"},{size: "22.5cm"},{size: "23cm"},{size: "23.5cm"},{size: "24cm"},{size: "24.5cm"},{size: "25cm"},{size: "25.5cm"},{size: "26cm"},{size: "26.5cm"},{size: "27cm"},{size: "27.5cm以上"}])
+
+baby_clothes = ItemSize.create(size: "ベビー服 ~95cm")
+baby_clothes_1 = baby_clothes.children.create([{size: "60cm"},{size: "70cm"},{size: "80cm"},{size: "90cm"},{size: "95cm"}])
+
+kids_clothes = ItemSize.create(size: "ベビー服 100cm~")
+kids_clothes_1 = kids_clothes.children.create([{size: "100cm"},{size: "110cm"},{size: "120cm"},{size: "130cm"},{size: "140cm"},{size: "150cm"},{size: "160cm"}])
+
+kids_shoes = ItemSize.create(size: "キッズ靴")
+kids_shoes_1 = kids_shoes.children.create([{size: "10.5cm以下"},{size: "11cm・11.5cm"},{size: "12cm・12.5cm"},{size: "13cm・13.5cm"},{size: "14cm・14.5cm"},{size: "15cm・15.5cm"},{size: "16cm・16.5cm"},{size: "17cm以上"}])
+
+
+#categoriesテーブルのカテゴリーデータ 
+
 lady = Category.create(name: "レディース")
 lady_1 = lady.children.create(name: "トップス")
 lady_1.children.create([{name: "Tシャツ/カットソー(半袖/袖なし)"},{name: "Tシャツ/カットソー(七分/長袖)"},{name: "シャツ/ブラウス(半袖/袖なし)"},{name: "シャツ/ブラウス(七分/長袖)"},{name: "ポロシャツ"},{name: "キャミソール"},{name: "タンクトップ"},{name: "ホルターネック"},{name: "ニット/セーター"},{name: "チュニック"},{name: "カーディガン/ボレロ"},{name: "アンサンブル"},{name: "ベスト/ジレ"},{name: "パーカー"},{name: "トレーナー/スウェット"},{name: "ベアトップ/チューブトップ"},{name: "ジャージ"},{name: "その他"}])
@@ -327,3 +352,94 @@ others_8 = others.children.create(name: "事務/店舗用品")
 others_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 others_9 = others.children.create(name: "その他")
 others_9.children.create([{name: "すべて"}])
+
+# category_sizes テーブルのidデータ
+
+CategorySize.create!(
+  [
+    {
+      category_id: 2,
+      item_size_id: 1
+    },
+    {
+      category_id: 21,
+      item_size_id: 1
+    },
+    {
+    category_id: 42,
+    item_size_id: 1
+    },
+    {
+    category_id: 55,
+    item_size_id: 1
+    },
+    {
+    category_id: 61,
+    item_size_id: 1
+    },
+    {
+    category_id: 66,
+    item_size_id: 29
+    },
+    {
+    category_id: 77,
+    item_size_id: 1
+    },
+    {
+    category_id: 174,
+    item_size_id: 1
+    },
+    {
+    category_id: 182,
+    item_size_id: 1
+    },
+    {
+    category_id: 197,
+    item_size_id: 1
+    },
+    {
+    category_id: 210,
+    item_size_id: 1
+    },
+    {
+    category_id: 229,
+    item_size_id: 1
+    },
+    {
+    category_id: 239,
+    item_size_id: 12
+    },
+    {
+    category_id: 261,
+    item_size_id: 1
+    },
+    {
+    category_id: 328,
+    item_size_id: 46
+    },
+    {
+    category_id: 340,
+    item_size_id: 46
+    },
+    {
+    category_id: 349,
+    item_size_id: 46
+    },
+    {
+    category_id: 358,
+    item_size_id: 52
+    },
+    {
+    category_id: 377,
+    item_size_id: 52
+    },
+    {
+    category_id: 392,
+    item_size_id: 52
+    },
+    {
+    category_id: 401,
+    item_size_id: 60
+    }
+  ]
+)

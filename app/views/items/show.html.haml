@@ -36,21 +36,27 @@
           %tr
             %th カテゴリー
             %td
-              %a.category1 （未リンク）メンズ
+              %a.category1
+                = @item.category.parent.parent.name
               %br
-              %a.category2 （未リンク）ジャケット/アウター
+              %a.category2
+                = @item.category.parent.name
               %br
-              %a.category3 （未リンク）ノーカラージャケット
+              %a.category3
+                = @item.category.name
           %tr
             %th ブランド
             %td （未リンク）
           %tr
             %th 商品のサイズ
-            %td （未リンク）
+            %td 
+              - if @item.item_size_id?
+                = @item.item_size.size
+
           %tr
             %th 商品の状態
             %td 
-              = @item.condition
+              = @item.condition.name
           %tr
             %th 配送料の負担
             %td

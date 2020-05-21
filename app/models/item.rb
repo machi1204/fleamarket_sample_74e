@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy
+  belongs_to :item_size, optional: true
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_fee 
