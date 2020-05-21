@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      redirect_to new_item_path
+      render :new
     end
   end
 
@@ -41,11 +41,9 @@ class ItemsController < ApplicationController
     end
     if @item.valid? && !@item.images.empty? && imageLength != deleteImage
       @item.update(item_params)
-      redirect_to root_path, notice: '出品した商品を編集しました'
+      redirect_to root_path
     else
-      flash.now[:notice] = '必須項目を入力してください'
-      @item.images.build
-      render :edit
+      redirect_to edit_item_path(@item)
     end
   end
 
@@ -53,11 +51,10 @@ class ItemsController < ApplicationController
     @images = Image.where(item_id: params[:id])
   end
 
-
   private
   def item_params
     params.require(:item).permit(:name, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
-     images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
+      images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
   def set_item
