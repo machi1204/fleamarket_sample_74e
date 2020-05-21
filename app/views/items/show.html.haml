@@ -24,13 +24,12 @@
       - if @item.sold_day == nil
         - if user_signed_in?
           - if @item.user.id == current_user.id
-            =link_to '#', class:'item-box__item-change-btn' do
+            = link_to edit_item_path(@item), class:'item-box__item-change-btn' do
               商品の編集
             %p or
-            =link_to '#', class:'item-box__item-delete-btn' do
-              この商品を削除する
+            %a#modal-open.item-box__item-delete-btn この商品を削除する
           - else 
-            =link_to '#', class:'item-box__order-btn' do
+            =link_to item_index_path(@item), class:'item-box__order-btn' do
               購入画面に進む
       -else
         %p.item-box__sold-tag 売り切れました
@@ -110,7 +109,7 @@
           %i.fa.fa-angle-right
 
     .relayted-items
-      = link_to 'メンズをもっと見る', '#'
+      = link_to "#{@item.category.parent.parent.name}をもっと見る", '#'
 
 %aside#modal-content
   %span.modal-tilte 確認
