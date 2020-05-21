@@ -105,8 +105,8 @@ Things you may want to cover:
 ## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|category|string|null: false|
-|ancestry|string|null: false|
+|name|string|null: false|
+|ancestry|string|
 ### Association
 - has_many :items
 

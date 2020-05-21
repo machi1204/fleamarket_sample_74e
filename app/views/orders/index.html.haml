@@ -10,15 +10,12 @@
     %h2.order__main__container__head  商品内容の確認
     %section.order__main__container__content
       .inner
-        .item-box
-          %h3.item-box__image
-
+        .item-box          
+          .item-box__image
+            = image_tag "#{@image.image}", height: '50px'
           .item-box__detail
             %p.name 
               =@item.name
-            %p.price
-              %span
-              %span
     %section.order__main__container__pay
       .inner
         .price__box
@@ -47,6 +44,5 @@
       .inner
         = form_tag(item_pay_path(@item), method: :post) do
           %button.order__commit 購入する     
-
 
 .account-page__footer

@@ -18,6 +18,7 @@ $(function(){
     })
   }
   $(".flexbox").on("click", ".delete", function(){
+    $(document).on('page:load', 'ready')
     const targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);
     if($(this).parent().parent().attr("class") == "new-contents__box__preview-first"){

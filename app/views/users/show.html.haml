@@ -1,5 +1,8 @@
+= render 'items/index_header'
+
+- breadcrumb :mypage
+= render "layouts/breadcrumbs"
 .user-container
-  -# = render "header" 
   .user-container-contents
     .user-container-contents__left
       %ul.mypage-nav-list
@@ -60,7 +63,7 @@
           = link_to user_path, class: "mypage-nav-list__link" do
             発送元・お届け先住所変更
         %li
-          = link_to user_path, class: "mypage-nav-list__link" do
+          = link_to card_index_path, class: "mypage-nav-list__link" do
             支払い方法
         %li
           = link_to user_path, class: "mypage-nav-list__link" do
@@ -127,4 +130,5 @@
             %li.mypage-tab-contents-during-past__contents-list
               取引中の商品はありません
   
-  -# = render footer
+= render 'items/index_app-banner'
+= render 'items/index_footer'

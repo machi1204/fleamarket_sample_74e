@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
+
   belongs_to :user
+  belongs_to :category
   has_many :images, dependent: :destroy
+  belongs_to :item_size, optional: true
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :shipping_fee 
@@ -8,12 +11,19 @@ class Item < ApplicationRecord
   belongs_to_active_hash :condition
   belongs_to_active_hash :prefecture
 
-  validates :name, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id, presence: true
-  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999 }
-  validates_associated :images
-  validates :images, presence: true
+  validates :name, :explanation, presence: {message: "を入力してください"}
+  validates :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id, :category_id, presence: {message: "を選択してください"}
+  validates :price, numericality: { only_integer: true, greater_than: 299, less_than: 9999999, message: "入力してください。半角で入力してください。" }
+  
+  validates :images, presence: {message: "を選択してください"}
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
 
 end
