@@ -57,25 +57,25 @@
           不適切な商品情報
 
     .comment-box
-      .comment-user
-        .comment-user__nickname
-          - @item.comments.each do |comment|
-            = comment.user.nickname
-        .comment-user__icon
-          = image_tag "member_photo_noimage_thumb.png", size: "40x40"
-      .comment-body
-        .comment-body__text
-          - @item.comments.each do |comment|
-            = comment.comment
-          %br
-          .comment-body__text--time
-            - @item.comments.each do |comment|
-              %i.fa.fa-clock
-              = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
+      .comment-container
+        - @item.comments.each do |comment|
+          %li.comment-block
+            .comment-user__nickname
+              = comment.user.nickname
+            .comment-user
+              .comment-user__icon
+                = image_tag "member_photo_noimage_thumb.png", size: "40x40"
+            .comment-body
+              .comment-body__text
+                = comment.comment
+                %br
+                .comment-body__text--time
+                  %i.fa.fa-clock
+                  = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
  
       .comment-textform
-        = form_with(link_to: '#', local: true, method: :get, class: "comment-form") do |form|
-          = form.text_area :text, class: "comment-input"
+        = form_with(model: [@item, @comment], local: true, class: "comment-form") do |form|
+          = form.text_area :comment, class: "comment-input"
           %p.notice 
             相手のことを考え丁寧なコメントを心がけましょう。
             %br
