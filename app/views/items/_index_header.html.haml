@@ -16,8 +16,12 @@
     .header__inner__nav
 
       %ul.header__inner__nav__leftlist
-        %li.category  
-          = link_to('カテゴリー', {})     
+        %li.category
+          #category-area
+            カテゴリーから探す  
+            .category-box
+              = render "layouts/category"
+              -# = link_to('カテゴリー', {})     
         %li.brand 
           = link_to('ブランド', {})   
       %ul.header__inner__nav__rightlist

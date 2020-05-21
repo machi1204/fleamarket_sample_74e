@@ -1,4 +1,5 @@
 = render "new-header"
+
 = form_with model: @item, url: items_path , local: true do |f|
   .new-contents
     -# 商品画像
@@ -35,14 +36,15 @@
     .new-contents__box
       .new-contents__box__main-title
         商品の詳細
-      .new-contents__box__title
-        カテゴリー
-        %supan{class: "required"} 必須
-      %select{class: "new-contents__box__select"}
-        %option{value: ""} 選択してください
-        %option{value: ""} カテゴリー１
-        %option{value: ""} カテゴリー２
-        %option{value: ""} カテゴリー３
+      .new-contents__box__details
+        .new-contents__box__title
+          カテゴリー
+          %supan{class: "required"} 必須
+        .new-contents__box__select
+          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '選択して下さい'}, {class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
+          -# %i.fas.fa-chevron-down
+        .error-messages#error-category
+
       .new-contents__box__title
         ブランド
         %supan{class: "any"} 任意
