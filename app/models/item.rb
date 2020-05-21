@@ -17,6 +17,12 @@ class Item < ApplicationRecord
   validates :images, presence: true
   accepts_nested_attributes_for :images, allow_destroy: true
 
-  
+  def previous
+    Item.where("id < ?", self.id).order("id DESC").first
+  end
+
+  def next
+    Item.where("id > ?", self.id).order("id ASC").first
+  end
 
 end
