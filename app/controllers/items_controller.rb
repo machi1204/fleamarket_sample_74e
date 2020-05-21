@@ -66,9 +66,9 @@ class ItemsController < ApplicationController
     end
     if @item.valid? && !@item.images.empty? && imageLength != deleteImage
       @item.update(item_params)
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を編集しました'
     else
-      redirect_to edit_item_path(@item)
+      redirect_to edit_item_path(@item), notice: '必須項目を入力してください'
     end
   end
 
