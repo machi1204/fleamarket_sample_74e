@@ -56,8 +56,8 @@
           %tr
             %th ブランド
             %td 
-              -# -if @item.brand !=nil
-              -#   =@item.brand
+              - if @item.brand?
+                =@item.brand
           %tr
             %th 商品のサイズ
             %td 
