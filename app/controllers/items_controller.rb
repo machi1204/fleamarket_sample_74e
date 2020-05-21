@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  # before_action :set_item, only: [:show, :destroy]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -45,8 +45,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def edit
   end
@@ -65,9 +65,9 @@ class ItemsController < ApplicationController
       images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
   
-  def set_item
-    @item = Item.find(params[:id])
-  end
+  # def set_item
+  #   @item = Item.find(params[:id])
+  # end
 
 end
 
