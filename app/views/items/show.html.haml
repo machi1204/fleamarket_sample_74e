@@ -58,7 +58,7 @@
 
     .comment-box
       .comment-container
-        - @item.comments.each do |comment|
+        - @comments.each do |comment|
           %ul.comment-block.clearfix
             %li.comment-user__nickname
               = comment.user.nickname
