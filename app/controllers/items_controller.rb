@@ -49,7 +49,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-  
 
     grandchild_category = @item.category
     child_category = grandchild_category.parent
@@ -62,7 +61,7 @@ class ItemsController < ApplicationController
 
     # 子カテゴリを取得
     @category_children_array = []
-    Category.where(ancestry: nil).each do |children|
+    Category.where(ancestry: child_category.ancestry).each do |children|
       @category_children_array << children
     end
 
@@ -77,7 +76,6 @@ class ItemsController < ApplicationController
     @size = @item.item_size.siblings.each do |size|
       @item_size_array << size
     end
-    # binding.pry
 
 
     
