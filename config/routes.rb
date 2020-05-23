@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults: {format: 'json'}
       get 'get_size', defaults: {format: 'json'}
     end
-    get 'index', to: 'orders#index'
+    resources :orders, only: [:index]
     post 'pay', to: 'orders#pay'
     get 'done', to: 'orders#done'
   end
