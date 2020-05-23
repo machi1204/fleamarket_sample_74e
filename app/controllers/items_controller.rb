@@ -82,19 +82,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    imageLength = 0
-    deleteImage = 0
-    params[:item][:images_attributes].each do |p|
-      imageLength += 1
-    end
-    for num in 0..9
-      if params[:item][:images_attributes][num.to_s] != nil
-        if params[:item][:images_attributes][num.to_s][:_destroy] == "1"
-          deleteImage += 1
-        end
-      end
-    end
-    if @item.valid? && !@item.images.empty? && imageLength != deleteImage
+    if @item.valid?
       if @item.item_size_id != nil
         @item.update(update_params)
         redirect_to root_path, notice: '商品を編集しました'
@@ -103,7 +91,7 @@ class ItemsController < ApplicationController
         redirect_to root_path, notice: '商品を編集しました'
       end
     else
-      redirect_to edit_item_path(@item), notice: '必須項目を入力してください'
+      redirect_to edit_item_path, notice: '必須項目を入力してください'
     end
   end
 
