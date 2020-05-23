@@ -71,7 +71,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'unicorn', '5.5.5'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'devise'
@@ -86,6 +86,7 @@ gem 'jquery-rails'
 gem 'active_hash'
 gem 'payjp'
 gem 'dotenv-rails'
-gem "gretel"
+gem 'rails-i18n'
 gem "ancestry"
-
+gem "gretel"
+gem "fog-aws"
