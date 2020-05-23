@@ -42,13 +42,13 @@
           %supan{class: "required"} 必須
           = render partial: 'layouts/error_messages', locals: {item: @item, column: "category_id"}
         .new-contents__box__select
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '選択して下さい'}, {class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
+          = f.select :category_id, options_for_select(@category_parent_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{},{class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
         .new-contents__box__select#select-children-box
           = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{},{class: 'new-contents__box__select__input', id: 'category-select-children', required: "required"}
         .new-contents__box__select#select-grandchildren-box
           = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{},{class: 'new-contents__box__select__input', id: 'category-select-grandchildren', required: "required"}
         .error-messages#error-category
-      - if @item.item_size.id
+      - if @item.item_size_id?
         .new-contents__box__select#size_wrapper
           = f.select :item_size_id, options_for_select(@item_size_array.map{|b| [b.size, b.id, {data:{item_size: b.id}}]}, {prompt: "指定なし", selected: @item.item_size.id}),{},{class: 'new-contents__box__select__input', id: 'size', required: "required"}
       .new-contents__box__title

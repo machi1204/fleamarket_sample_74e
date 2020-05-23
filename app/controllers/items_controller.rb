@@ -49,15 +49,15 @@ class ItemsController < ApplicationController
   end
 
   def edit
-
     grandchild_category = @item.category
     child_category = grandchild_category.parent
     
     # 親カテゴリを取得
     @category_parent_array = []
     Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent.name
+      @category_parent_array << parent
     end
+    
 
     # 子カテゴリを取得
     @category_children_array = []
@@ -70,19 +70,19 @@ class ItemsController < ApplicationController
     Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
       @category_grandchildren_array << grandchildren
     end
-    
+
     #サイズカテゴリを取得
-    @item_size_array = []
-    @size = @item.item_size.siblings.each do |size|
-      @item_size_array << size
+    if @item.item_size_id != nil
+      @item_size_array = []
+      @item.item_size.siblings.each do |size|
+        @item_size_array << size
+      end
     end
-
-
     
   end
 
   def update
-  
+    # binding.pry
     imageLength = 0
     deleteImage = 0
     params[:item][:images_attributes].each do |p|
@@ -96,8 +96,10 @@ class ItemsController < ApplicationController
       end
     end
     if @item.valid? && !@item.images.empty? && imageLength != deleteImage
-      @item.update(item_params)
-      redirect_to root_path, notice: '商品を編集しました'
+      if 
+        @item.update(item_params)
+      end
+        redirect_to root_path, notice: '商品を編集しました'
     else
       redirect_to edit_item_path(@item), notice: '必須項目を入力してください'
     end
