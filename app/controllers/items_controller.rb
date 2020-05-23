@@ -46,6 +46,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+#    @order = Item.find(params[:id])
   end
 
   def edit
