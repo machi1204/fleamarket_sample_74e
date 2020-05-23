@@ -1,0 +1,81 @@
+.order__main {
+  background-color: $dimwhite;
+  &__container {
+    width: 700px;
+    margin: 0 auto;
+    background-color: $white;
+    
+
+    &__head {
+      font-size: 22px;
+      padding: 32px;
+    }
+
+    &__content {
+      text-align: center;
+      margin: 0;
+      padding: 32px 16px;
+      border-top: 1px solid #f5f5f5;
+      .inner {
+        max-width: 343px;
+        margin: 0 auto;
+        .item-box {
+          display: flex;
+          justify-content: space-around;
+          &__detail {
+            line-height: 50px;
+            padding-left: 40px;
+            
+            .down {
+              font-weight: bold;
+            }
+          }
+        }
+        .info-box {
+          display: flex;
+          justify-content: space-evenly;
+
+          .edit__Btn {
+            margin: auto 0;
+          }
+        }
+        
+      }
+    }
+    &__pay {
+      text-align: center;
+      margin: 0;
+      padding: 32px 16px;
+      border-top: 1px solid #f5f5f5;
+      padding-bottom: 30px;;
+      .inner {
+        max-width: 343px;
+        margin: 0 auto;
+        .price__box {
+          display: flex;
+          justify-content: space-evenly;
+          font-size: 18px;
+          font-weight: bold;
+          
+          .left {
+          }
+          .right {
+          }
+        }
+      }      
+    }
+  }
+
+  .order__commit {
+    color: $white;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: $main_blue;
+    width: 343px;
+    height: 50px;
+  }
+}
+
+.account-page__footer {
+  background-color: $dimwhite;
+}
