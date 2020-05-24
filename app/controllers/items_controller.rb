@@ -39,8 +39,9 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を出品しました'
     else
+      flash.now[:notice] = '出品には必須項目が必要です'
       render :new
     end
   end
@@ -59,11 +60,10 @@ class ItemsController < ApplicationController
     # 孫カテゴリを取得
     @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
 
-    #サイズカテゴリを取得
+    #サイズがある場合、サイズカテゴリを取得
     if @item.item_size_id != nil
       @item_size_array = @item.item_size.siblings
     end
-    
   end
 
   def update
