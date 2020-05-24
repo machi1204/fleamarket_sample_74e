@@ -3,7 +3,8 @@ class OrdersController < ApplicationController
 
   def index
     @item = Item.find(params[:item_id])
-    @image = Image.find(params[:item_id])
+#    @image = Image.find(params[:item_id]).first
+    @image = Image.where(item_id: @item).first
     @category = Category.find(@item.category_id)
     card = Card.where(user_id: current_user.id).first
     if card.blank?
