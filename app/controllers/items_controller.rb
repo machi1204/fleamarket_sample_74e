@@ -58,7 +58,6 @@ class ItemsController < ApplicationController
       @category_parent_array << parent
     end
     
-
     # 子カテゴリを取得
     @category_children_array = []
     Category.where(ancestry: child_category.ancestry).each do |children|
@@ -82,16 +81,10 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.valid?
-      if @item.item_size_id != nil
-        @item.update(update_params)
-        redirect_to root_path, notice: '商品を編集しました'
-      else
-        @item.update(item_params)
-        redirect_to root_path, notice: '商品を編集しました'
-      end
+    if params[:item][:item_size_id] != nil
+      item_update(item_params)
     else
-      redirect_to edit_item_path, notice: '必須項目を入力してください'
+      item_update(update_params)
     end
   end
 
@@ -108,13 +101,21 @@ class ItemsController < ApplicationController
   end
   
   private
+  def item_update(parameter)
+    if @item.update(parameter)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      redirect_to edit_item_path(@item), notice: '必須項目を入力してください'
+    end
+  end
+  
   def item_params
     params.require(:item).permit(:name, :category_id, :item_size_id, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
       images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
 
   def update_params
-    params.require(:item).permit(:name, :category_id, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
+    params.require(:item).permit(:name, :explanation, :condition_id, :shipping_fee_id, :shipping_day_id, :prefecture_id, :brand, :price, :category_id,
       images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, item_size_id: "")
   end
 
