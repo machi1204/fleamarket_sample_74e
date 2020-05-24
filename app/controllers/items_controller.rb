@@ -51,31 +51,16 @@ class ItemsController < ApplicationController
   def edit
     grandchild_category = @item.category
     child_category = grandchild_category.parent
-    
     # 親カテゴリを取得
-    @category_parent_array = []
-    Category.where(ancestry: nil).each do |parent|
-      @category_parent_array << parent
-    end
-    
+    @category_parent_array = Category.where(ancestry: nil)
     # 子カテゴリを取得
-    @category_children_array = []
-    Category.where(ancestry: child_category.ancestry).each do |children|
-      @category_children_array << children
-    end
-
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
     # 孫カテゴリを取得
-    @category_grandchildren_array = []
-    Category.where(ancestry: grandchild_category.ancestry).each do |grandchildren|
-      @category_grandchildren_array << grandchildren
-    end
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
 
     #サイズカテゴリを取得
     if @item.item_size_id != nil
-      @item_size_array = []
-      @item.item_size.siblings.each do |size|
-        @item_size_array << size
-      end
+      @item_size_array = @item.item_size.siblings
     end
     
   end
@@ -108,7 +93,7 @@ class ItemsController < ApplicationController
       redirect_to edit_item_path(@item), notice: '必須項目を入力してください'
     end
   end
-  
+
   def item_params
     params.require(:item).permit(:name, :category_id, :item_size_id, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
       images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
