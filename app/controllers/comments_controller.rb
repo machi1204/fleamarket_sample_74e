@@ -1,7 +1,6 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.create(comment_params)
-    # redirect_to item_path(params[:item_id])
     @item = Item.find(params[:item_id])
     respond_to do |format|
       format.html { redirect_to item_path(params[:item_id]) }

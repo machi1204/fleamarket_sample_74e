@@ -79,7 +79,8 @@
       .comment-textform
         = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
           = form.text_area :comment, class: "textbox"
-          = form.submit "コメント送信", class: "comment-btn" 
+          = button_tag type: 'submit', class: "comment-btn"do
+            %i.fa.fa-comment コメントする
           %p.notice 
             相手のことを考え丁寧なコメントを心がけましょう。
             %br

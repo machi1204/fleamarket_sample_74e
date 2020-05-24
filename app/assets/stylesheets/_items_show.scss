@@ -111,7 +111,7 @@ a {
     margin: 10px 0;
     padding: 24px;
     background-color: $white;
-    .comment-form {
+    .comment-textform {
       text-align: center;
       p {
         margin: 10px 0;
@@ -120,7 +120,7 @@ a {
         text-align: left;
         background-color: $dimwhite;
       }
-      .comment-input {
+      .textbox {
         width: 100%;
         min-height: 100px;
         margin-right: 10px;
@@ -135,6 +135,8 @@ a {
         width: 60%;
         font-size: 18px;
         border-radius: 100px;
+        margin: 15px 0 15px 0;
+        cursor: pointer;
       }
     }
     .comment-container {
