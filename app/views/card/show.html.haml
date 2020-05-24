@@ -1,26 +1,97 @@
-.account-page
-.account-page__header
-  .account-page__header__box
-    =link_to '/hogehoge'do
-      =image_tag 'logo.png', height: '50px'
+= render 'items/index_header'
 
+- breadcrumb :card_info
+= render "layouts/breadcrumbs"
+.user-container
+  .user-container-contents
+    .user-container-contents__left
+      %ul.mypage-nav-list
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            マイページ
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            お知らせ
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            やることリスト
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            いいね！一覧
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            出品する
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            下書き一覧
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            出品した商品 - 出品中
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            出品した商品 - 取引中
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            出品した商品 - 売却済み
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            購入した商品 - 取引中
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            購入した商品 - 過去の取引
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            ニュース一覧
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            評価一覧
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            ガイド
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            お問い合わせ
+      %h3.mypage-nav-head
+        設定
 
-.card-info
-  .card-info__main
-    %section.card-info__main__container
-      %h2 登録クレジットカード情報
-      .card-info__main__container__inner
-        %section
-          %ul
-            %li
-              = "**** **** **** " + @default_card_information.last4
-              %br
-              - exp_month = @default_card_information.exp_month.to_s
-              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-              = exp_month + " / " + exp_year
-              = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class: "delete-Btn") do
-                %input{ type: "hidden", name: "card_id", value: "" }
-                %button 削除する
+      %ul.mypage-nav-list
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            プロフィール
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            発送元・お届け先住所変更
+        %li
+          = link_to card_index_path, class: "mypage-nav-list__link" do
+            支払い方法
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            メール/パスワード
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            本人情報
+        %li
+          = link_to user_path(@current_user), class: "mypage-nav-list__link" do
+            電話番号の確認
+        %li
+          = link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list__link" do
+            ログアウト
+    .card-info2
+      .card-info__main
+        %section.card-info__main__container
+          %h2 登録クレジットカード情報
+          .card-info__main__container__inner
+            %section
+              %ul
+                %li
+                  = "**** **** **** " + @default_card_information.last4
+                  %br
+                  - exp_month = @default_card_information.exp_month.to_s
+                  - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+                  = exp_month + " / " + exp_year
+                  = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class: "delete-Btn") do
+                    %input{ type: "hidden", name: "card_id", value: "" }
+                    %button 削除する
 
 
 .account-page__footer

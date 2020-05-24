@@ -24,11 +24,22 @@
           justify-content: space-around;
           &__detail {
             line-height: 50px;
-            padding-left: 70px;
-            font-weight: bold;
-            font-size: 24px;
+            padding-left: 40px;
+            
+            .down {
+              font-weight: bold;
+            }
           }
         }
+        .info-box {
+          display: flex;
+          justify-content: space-evenly;
+
+          .edit__Btn {
+            margin: auto 0;
+          }
+        }
+        
       }
     }
     &__pay {
