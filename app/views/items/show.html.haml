@@ -60,8 +60,12 @@
       .comment-container
         - @comments.each do |comment|
           %ul.comment-block.clearfix
-            %li.comment-user__nickname
-              = comment.user.nickname
+            - if comment.user_id == @item.user_id
+              %li.comment-user__nickname
+                出品者
+            - else
+              %li.comment-user__nickname
+                = comment.user.nickname
             %li.comment-body
               .comment-body__text
                 = comment.comment
@@ -73,16 +77,16 @@
               = image_tag "member_photo_noimage_thumb.png", size: "40x40"
  
       .comment-textform
-        = form_with(model: [@item, @comment], local: true, class: "comment-form") do |form|
-          = form.text_area :comment, class: "comment-input"
+        = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
+          = form.text_area :comment, class: "textbox"
+          = form.submit "コメント送信", class: "comment-btn" 
           %p.notice 
             相手のことを考え丁寧なコメントを心がけましょう。
             %br
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
           %br
-          = button_tag type: 'submit', class: 'comment-btn' do
-            %i.fa.fa-comment コメントする
 
+        
     %ul.nav-item-link.clreafix
       = link_to '#', class: "nav-item-prev" do
         %i.fa.fa-angle-left  前の商品
