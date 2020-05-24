@@ -75,28 +75,29 @@
                   = comment.created_at.strftime("%Y-%m-%d %H:%M:%S")
             %li.comment-user__icon
               = image_tag "member_photo_noimage_thumb.png", size: "40x40"
- 
+
       .comment-textform
-        = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
-          = form.text_area :comment, class: "textbox"
-          = button_tag type: 'submit', class: "comment-btn"do
-            %i.fa.fa-comment コメントする
-          %p.notice 
-            相手のことを考え丁寧なコメントを心がけましょう。
+        - if user_signed_in?
+          = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
+            = form.text_area :comment, class: "textbox"
+            = button_tag type: 'submit', class: "comment-btn"do
+              %i.fa.fa-comment コメントする
+            %p.notice 
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
             %br
-            不快な言葉遣いなどは利用制限や退会処分となることがあります。
-          %br
 
         
-    %ul.nav-item-link.clreafix
-      = link_to '#', class: "nav-item-prev" do
-        %i.fa.fa-angle-left  前の商品
-      = link_to '#', class: "nav-item-next" do
-        後ろの商品
-        %i.fa.fa-angle-right
+      %ul.nav-item-link.clreafix
+        = link_to '#', class: "nav-item-prev" do
+          %i.fa.fa-angle-left  前の商品
+        = link_to '#', class: "nav-item-next" do
+          後ろの商品
+          %i.fa.fa-angle-right
 
-    .relayted-items
-      = link_to 'メンズをもっと見る', '#'
+      .relayted-items
+        = link_to 'メンズをもっと見る', '#'
 
 = render 'index_app-banner'
 
