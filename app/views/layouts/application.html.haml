@@ -10,4 +10,5 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = favicon_link_tag 
   %body
+    = render partial: "layouts/flash_message"
     = yield
