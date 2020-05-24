@@ -83,7 +83,7 @@
             .list
               = link_to item_path(item.id),class: ".list__content" do
                 %figure.list__content__image
-                  = item.images.each do |image|
+                  = item.images.first(1).each do |image|
                     = image_tag image.image.to_s, class: 'img'
                 .list__content__body  
                   %h3.list__content__body__name
@@ -108,7 +108,7 @@
             .list
               = link_to item_path(item.id),class: ".list__content" do
                 %figure.list__content__image
-                  = item.images.each do |image|
+                  = item.images.first(1).each do |image|
                     = image_tag image.image.to_s, class: 'img'
                 .list__content__body  
                   %h3.list__content__body__name
