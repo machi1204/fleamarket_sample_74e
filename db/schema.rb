@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_020420) do
+ActiveRecord::Schema.define(version: 2020_05_22_101437) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "post_number", null: false
-    t.string "prefecture", null: false
+    t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "apartment"
@@ -74,14 +74,22 @@ ActiveRecord::Schema.define(version: 2020_05_21_020420) do
     t.integer "shipping_fee_id", null: false
     t.integer "shipping_day_id", null: false
     t.integer "prefecture_id", null: false
-    t.string "brand"
     t.date "sold_day"
     t.bigint "user_id", null: false
     t.bigint "category_id", null: false
     t.bigint "item_size_id"
+    t.string "brand"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["item_size_id"], name: "index_items_on_item_size_id"
     t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
+  create_table "pays", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "customer_id", null: false
+    t.string "card_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

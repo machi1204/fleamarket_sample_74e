@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # get 'orders/done'
   get 'card/new'
   get 'card/show'
+  get 'users/sign_out'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }

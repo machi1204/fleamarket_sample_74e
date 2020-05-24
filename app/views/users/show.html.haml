@@ -75,7 +75,7 @@
           = link_to user_path, class: "mypage-nav-list__link" do
             電話番号の確認
         %li
-          = link_to destroy_user_session_path, method: :delete, class: "mypage-nav-list__link" do
+          = link_to users_sign_out_path, class: "mypage-nav-list__link" do
             ログアウト
         
           
