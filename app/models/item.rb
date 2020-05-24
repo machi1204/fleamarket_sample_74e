@@ -17,8 +17,6 @@ class Item < ApplicationRecord
     presence: true, presence: {message: "を選択してください"}
   validates :price, 
     numericality: { only_integer: true, greater_than: 299, less_than: 9999999, message: "入力してください。半角で入力してください。"}
-  # validates 
-  #   presence: true, presence: {message: "を選択してください"}
   accepts_nested_attributes_for :images, allow_destroy: true
 
   def previous
