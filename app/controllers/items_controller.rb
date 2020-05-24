@@ -47,6 +47,8 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user).order(created_at: "ASC")
     @order = Item.find(params[:id])
   end
 
@@ -99,6 +101,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(:name, :category_id, :item_size_id, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
       images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
+
 
   def update_params
     params.require(:item).permit(:name, :explanation, :condition_id, :shipping_fee_id, :shipping_day_id, :prefecture_id, :brand, :price, :category_id,
