@@ -1,6 +1,7 @@
 $(function(){
-  const index = [0,1,2,3,4,5,6,7,8,9];
-  const request = $("#image-label").attr("action");
+  let index = [0,1,2,3,4,5,6,7,8,9];
+  let request = $("#image-label").attr("action");
+  //editアクションでajaxで画像を拾ってくる
   if(request != undefined && request.indexOf("edit") != -1){
     $.ajax({
       url: "/items/set_images",
@@ -11,15 +12,17 @@ $(function(){
         buildImage(d.image.url);
       })
       $(".hidden").hide();
+      //編集で削除したとき
       $(".flexbox").on("click", ".delete", function(){
-        const targetDeleteIndex = Number($(this).attr("index"));
+        let targetDeleteIndex = Number($(this).attr("index"));
         $(`#item_images_attributes_${targetDeleteIndex}__destroy`).prop('checked', true);
       })
     })
   }
+  //削除ボタンを押すと発火
   $(".flexbox").on("click", ".delete", function(){
     $(document).on('page:load', 'ready')
-    const targetIndex = Number($(this).attr("index"));
+    let targetIndex = Number($(this).attr("index"));
     index.push(targetIndex);
     if($(this).parent().parent().attr("class") == "new-contents__box__preview-first"){
       $(".new-contents__box__preview .new-contents__box__preview__image:first").appendTo(".new-contents__box__preview-first");
@@ -37,12 +40,12 @@ $(function(){
     }else{
       $("#image-field-second").css("width",index.length*130);
     }
-    $("#image-label").attr("for",`item_images_attributes_${targetIndex}_image`);
     $(this).parent().remove();
     $(`#item_images_attributes_${targetIndex}_image`).remove();
     $(".flexbox").append(`<input class="file-field" type="file" name="item[images_attributes][${targetIndex}][image]" id="item_images_attributes_${targetIndex}_image">`);
   })
-  const buildImage = function(url){
+  //関数１ 画像エリアを作成
+  let buildImage = function(url){
     if(index.length != 0){
       $(".new-contents__box__preview").append(`
         <div class="new-contents__box__preview__image">
@@ -76,8 +79,9 @@ $(function(){
       $("#image-field-second").css("width",index.length*130);
     }
   }
+  //画像を追加すると発火 関数１へ
   $(".flexbox").on("change", function(e){
-    const blob = window.URL.createObjectURL(e.target.files[0]);
+    let blob = window.URL.createObjectURL(e.target.files[0]);
     buildImage(blob);
   })
 })

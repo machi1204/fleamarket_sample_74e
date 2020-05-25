@@ -84,7 +84,8 @@ class ItemsController < ApplicationController
       redirect_to item_path
     end
   end
-
+  
+  # 画像編集でDBが画像を拾ってくる
   def set_images
     @images = Image.where(item_id: params[:id])
   end

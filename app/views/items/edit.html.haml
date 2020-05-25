@@ -66,7 +66,7 @@
       .new-contents__box__main-title
         発送方法について
       .new-contents__box__title
-        発送量の負担
+        発送料の負担
         %supan{class: "required"} 必須
       = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
       .new-contents__box__title

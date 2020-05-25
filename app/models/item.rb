@@ -3,7 +3,8 @@ class Item < ApplicationRecord
   has_many :comments
   belongs_to :user
   belongs_to :category
-  has_many :images, dependent: :destroy
+  has_many :images, dependent: :destroy #親が削除された時に合わせて子も削除される
+  accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :item_size, optional: true
   belongs_to_active_hash :shipping_fee 
   belongs_to_active_hash :shipping_day
@@ -18,7 +19,7 @@ class Item < ApplicationRecord
     presence: true, presence: {message: "を選択してください"}
   validates :price, 
     numericality: { only_integer: true, greater_than: 299, less_than: 9999999, message: "入力してください。半角で入力してください。"}
-  accepts_nested_attributes_for :images, allow_destroy: true
+  
 
   def previous
     Item.where("id < ?", self.id).order("id DESC").first
