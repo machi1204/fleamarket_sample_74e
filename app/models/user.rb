@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :email,
     presence: true,
     uniqueness: true,
-    format: { with: VALID_EMAIL_REGEX }
+    format: { with: VALID_EMAIL_REGEX, message: 'の後に@,ドメインを含ませてください' }
     
   devise :validatable, password_length: 7..15
   # ７文字以上、英数字のみ可
@@ -29,7 +29,9 @@ class User < ApplicationRecord
     format: { with: /\A[a-z0-9]+\z/i, message: 'は英数字で入力してください。' }
 
   # 全角 漢字ひらがなのみ可
-  validates :last_name, :first_name,
+  validates :last_name,
+  format: { with: /\A[一-龥ぁ-ん]/, message: 'は漢字、ひらがなで入力してください。'}
+  validates :first_name,
   format: { with: /\A[一-龥ぁ-ん]/, message: 'は漢字、ひらがなで入力してください。'}
 
   # カナのみ可
