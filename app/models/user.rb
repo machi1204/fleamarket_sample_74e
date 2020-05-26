@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   validates :nickname, :last_name, :first_name, presence: true
 
-  validates :birthdate_year, inclusion: { in: [1,2,3,4,5,6,7,8,9,10,11,12,13,14], message: 'を選択してくださいしてください。' }
+  validates :birthdate_year, inclusion: { in: (1..51), message: 'を選択してくださいしてください。' }
   validates :birthdate_month, inclusion: { in: [1,2,3,4,5,6,7,8,9,10,11,12], message: 'を選択してくださいしてください。' }
   validates :birthdate_day, inclusion: { in: (1..31), message: 'を選択してくださいしてください。'}
 

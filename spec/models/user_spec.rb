@@ -43,14 +43,14 @@ describe User do
       expect(user.errors[:birthdate_year]).to include("を選択してくださいしてください。")
     end
 
-    # 7. birthdate_yearが空では登録できないこと
+    # 7. birthdate_monthが空では登録できないこと
     it "is invalid without a birthdate_month" do
       user = build(:user, birthdate_month: nil)
       user.valid?
       expect(user.errors[:birthdate_month]).to include("を選択してくださいしてください。")
     end
 
-    # 8. birthdate_yearが空では登録できないこと
+    # 8. birthdate_dayが空では登録できないこと
     it "is invalid without a birthdate_day" do
       user = build(:user, birthdate_day: nil)
       user.valid?
