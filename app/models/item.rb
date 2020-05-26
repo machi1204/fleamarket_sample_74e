@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   validates :name, 
-    presence: true, presence: {message: "を入力してください"}
+    presence: true, length: {maximum: 40}, presence: {message: "を入力してください"}
   validates :explanation, 
     presence: true, length: {minimum: 1, maximum: 10000}
   validates :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id, :category_id, :images, 
