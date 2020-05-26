@@ -11,3 +11,23 @@ ja:
         shipping_day_id: 発送までの日数
         price: 価格
         images: 画像
+
+      user:
+        nickname: ニックネーム
+        email:  メールアドレス
+        password: パスワード
+        last_name:  姓
+        first_name: 名
+        last_name_kana: 姓（カナ）
+        first_name_kana:  名（カナ）
+        birthdate_year: 生年月日 "年"
+        birthdate_month:  生年月日 "月"
+        birthdate_day:  生年月日 "日"
+
+      address:
+        post_number: 郵便番号
+        prefecture_id: 都道府県
+        city: 都道府県
+        city: 市区町村
+        address: 番地
+        

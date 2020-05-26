@@ -34,6 +34,27 @@ a {
     }
     &__right {
       width: 700px;
+      &_signout-content {
+        background-color: $white;
+
+        &-box {
+          padding: 64px;
+
+          &__btn {
+            max-width: 320px;
+            margin: 0 auto;
+            
+            .btn-signout {
+              display: block;
+              background-color: $main_blue;
+              color: $white;
+              font-size: 15px;
+              line-height: 48px;
+              text-align: center;
+            }
+          }
+        }
+      }
 
       .mypage-user-icon {
         background: url(user-back.png);
