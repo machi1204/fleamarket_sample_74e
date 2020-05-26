@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
-  has_many :comments
+  has_many :comments, dependent: :destroy
   belongs_to :user
   belongs_to :category
   has_many :images, dependent: :destroy #親が削除された時に合わせて子も削除される
