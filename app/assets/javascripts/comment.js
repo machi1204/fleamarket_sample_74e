@@ -64,8 +64,11 @@ $(function(){
       $('.textbox').val('');
       $('.comment-btn').prop('disabled', false);
     })
+    // .fail(function(){
+    //   alert('コメントを入力してください。入力できるのは120文字までです。');
+    // })
     .fail(function(){
-      alert('error');
+      alert('コメントは1文字以上120文字以内で入力してください。');
     })
   })
 })
