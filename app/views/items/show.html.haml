@@ -117,7 +117,7 @@
         - else 
           - if user_signed_in?
             = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
-              = form.text_area :comment, class: "textbox"
+              = form.text_area :comment, class: "textbox",placeholder: "コメントは120文字まで入力できます。"
               = button_tag type: 'submit', class: "comment-btn"do
                 %i.fa.fa-comment コメントする
               %p.comment-notice 
