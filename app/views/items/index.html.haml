@@ -82,6 +82,10 @@
           - @items[0..2].each do |item|
             .list
               = link_to item_path(item.id),class: ".list__content" do
+                - if item.sold_day != nil
+                  .list__content-sold-mark
+                    .list__content-sold-mark--text
+                      SOLD
                 %figure.list__content__image
                   = item.images.first(1).each do |image|
                     = image_tag image.image.to_s, class: 'img'
@@ -124,3 +128,5 @@
 = render 'index_app-banner'
 
 = render 'index_footer'
+
+

@@ -40,7 +40,7 @@
           %tr
             %th 出品者
             %td
-              = User.find(@item.user_id).nickname
+              = @item.user.nickname
           %tr
             %th カテゴリー
             %td
@@ -107,22 +107,30 @@
             %li.comment-user__icon
               = image_tag "member_photo_noimage_thumb.png", size: "40x40"
       .comment-textform
-        - if user_signed_in?
-          = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
-            = form.text_area :comment, class: "textbox"
-            = button_tag type: 'submit', class: "comment-btn"do
-              %i.fa.fa-comment コメントする
-            %p.comment-notice 
-              相手のことを考え丁寧なコメントを心がけましょう。
-              %br
-              不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        - else
-          = button_tag type: 'submit', class: "comment-btn"do
-            %i.fa.fa-comment ログインしないとコメントできません
+        - if @item.sold_day != nil
+          = button_tag type: 'submit', class: "comment-btn-sold"do
+            %i.fa.fa-comment 売り切れのためコメントできません
           %p.comment-notice 
             相手のことを考え丁寧なコメントを心がけましょう。
             %br
             不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        - else 
+          - if user_signed_in?
+            = form_with(model: [@item, @comment], local: true, id: "new-comment") do |form|
+              = form.text_area :comment, class: "textbox"
+              = button_tag type: 'submit', class: "comment-btn"do
+                %i.fa.fa-comment コメントする
+              %p.comment-notice 
+                相手のことを考え丁寧なコメントを心がけましょう。
+                %br
+                不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          - else
+            = button_tag type: 'submit', class: "comment-btn"do
+              %i.fa.fa-comment ログインしないとコメントできません
+            %p.comment-notice 
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
     %ul.nav-item-link.clreafix
       - if @item.previous.present? 
         = link_to item_path(@item.previous), class: "nav-item-prev" do

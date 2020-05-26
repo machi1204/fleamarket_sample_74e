@@ -271,7 +271,24 @@ body {
     }
   }
 
-
+.list__content-sold-mark {
+  width: 0;
+  height: 0;
+  border-top: 50px solid $main_blue ;
+  border-right: 50px solid transparent;
+  border-bottom: 50px solid transparent;
+  border-left: 50px solid $main_blue ;
+  z-index:100;
+  position: absolute;
+  &--text {
+    transform: rotate(-45deg);
+    font-size: 18px;
+    margin:-15px 0px 0px -40px;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+  }
+}
 
   .middleDl {
     background-image: image-url('bg-topMiddleDl-pict.jpg');
