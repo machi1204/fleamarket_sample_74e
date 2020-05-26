@@ -15,24 +15,21 @@ Rails.application.routes.draw do
   root 'items#index'
   resources :users
   resources :items, except: [:index] do
+    resources :comments, only: :create
     collection do
       get 'category_children', defaults: {format: 'json'}
       get 'category_grandchildren', defaults: {format: 'json'}
       get 'get_size', defaults: {format: 'json'}
     end
-    get 'index', to: 'orders#index'
+    resources :orders, only: [:index]
     post 'pay', to: 'orders#pay'
     get 'done', to: 'orders#done'
-  end
-
-
-  resources :pays, only: [:new, :create, :show, :destroy] do
     collection do
-      post 'show', to: 'pays#show'
-      post 'pay', to: 'pays#pay'
-      post 'delete', to: 'pays#delete'
+      get 'set_images'
     end
   end
+
+
   resources :card, only: [:new, :show] do
     collection do
       post 'show', to: 'card#show'
@@ -41,3 +38,5 @@ Rails.application.routes.draw do
     end
   end
 end
+
+

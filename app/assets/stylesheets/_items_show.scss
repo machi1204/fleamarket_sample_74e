@@ -191,7 +191,7 @@ a {
     margin: 10px 0;
     padding: 24px;
     background-color: $white;
-    .comment-form {
+    .comment-textform {
       text-align: center;
       p {
         margin: 10px 0;
@@ -200,7 +200,7 @@ a {
         text-align: left;
         background-color: $dimwhite;
       }
-      .comment-input {
+      .textbox {
         width: 100%;
         min-height: 100px;
         margin-right: 10px;
@@ -215,6 +215,51 @@ a {
         width: 60%;
         font-size: 18px;
         border-radius: 100px;
+        margin: 15px 0 15px 0;
+        cursor: pointer;
+      }
+    }
+    .comment-container {
+      li {
+        list-style: none;
+      }
+      .comment-user__nickname {
+        font-weight: bold;
+        font-size: 14px;
+        float: left;
+        padding-left: 70px;
+      }
+      .comment-user__icon {
+        float: left;
+        padding-top: 20px;
+      }
+      .comment-body {
+        background-color: $table_gray;
+        font-size: 14px;
+        height: 100px;
+        margin: 0 0 1.5em 0;
+        border-radius: 12px;
+        width: 90%;
+        float: right;
+        position: relative;
+        &__text {
+          display: inline-block;
+          padding: 13px;
+          &--time {
+           position: absolute;
+           right: 20px;
+           top:80px;
+          }
+        }
+        &__text::before{
+          content: "";
+          position: absolute;
+          top: 50%; 
+          left: -23px;
+          margin-top: -23px;
+          border: 11px solid transparent;
+          border-right: 14px solid $table_gray;
+        }
       }
     }
   }

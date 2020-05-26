@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @items = Item.where(sold_day: nil).includes(:images).order(updated_at: "DESC")
@@ -39,16 +40,41 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to root_path
+      redirect_to root_path, notice: '商品を出品しました'
     else
+      flash.now[:notice] = '出品には必須項目が必要です'
       render :new
     end
   end
 
   def show
+    @comment = Comment.new
+    @comments = @item.comments.includes(:user).order(created_at: "ASC")
+    @order = Item.find(params[:id])
   end
 
   def edit
+    grandchild_category = @item.category
+    child_category = grandchild_category.parent
+    # 親カテゴリを取得
+    @category_parent_array = Category.where(ancestry: nil)
+    # 子カテゴリを取得
+    @category_children_array = Category.where(ancestry: child_category.ancestry)
+    # 孫カテゴリを取得
+    @category_grandchildren_array = Category.where(ancestry: grandchild_category.ancestry)
+
+    #サイズがある場合、サイズカテゴリを取得
+    if @item.item_size_id != nil
+      @item_size_array = @item.item_size.siblings
+    end
+  end
+
+  def update
+    if params[:item][:item_size_id] != nil
+      item_update(item_params)
+    else
+      item_update(update_params)
+    end
   end
 
   def destroy
@@ -58,15 +84,38 @@ class ItemsController < ApplicationController
       redirect_to item_path
     end
   end
-
+  
+  # 画像編集でDBが画像を拾ってくる
+  def set_images
+    @images = Image.where(item_id: params[:id])
+  end
+  
   private
+  def item_update(parameter)
+    if @item.update(parameter)
+      redirect_to root_path, notice: '商品を編集しました'
+    else
+      redirect_to edit_item_path(@item), notice: '必須項目を入力してください'
+    end
+  end
+
   def item_params
     params.require(:item).permit(:name, :category_id, :item_size_id, :price, :brand, :explanation, :condition_id, :shipping_fee_id, :prefecture_id, :shipping_day_id,
       images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id)
   end
-  
+
+
+  def update_params
+    params.require(:item).permit(:name, :explanation, :condition_id, :shipping_fee_id, :shipping_day_id, :prefecture_id, :brand, :price, :category_id,
+      images_attributes: [:image, :_destroy, :id]).merge(user_id: current_user.id, item_size_id: "")
+  end
+
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 
 end

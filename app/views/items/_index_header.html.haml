@@ -2,7 +2,8 @@
   .header__inner
     .header__inner__main
       %h1.icon
-        = image_tag 'logo.png', alt: '', height: '', width: '', class: 'header__inner__main__image'
+        =link_to '/'do
+          = image_tag 'logo.png', alt: '', height: '', width: '', class: 'header__inner__main__image'
       .searchbox
         %form(action="")
           %input.login-input-text{type: "hidden"}

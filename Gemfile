@@ -73,14 +73,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :production do
-  gem 'unicorn', '5.5.5'
+  gem 'unicorn', '5.4.1'
 end
 
 gem 'devise'
 
 gem 'haml-rails'
 gem 'erb2haml'
-
+gem 'jquery-rails'
 gem 'font-awesome-sass'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -93,3 +93,4 @@ gem "ancestry"
 gem "gretel"
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem "fog-aws"

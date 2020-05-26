@@ -6,6 +6,16 @@ crumb :mypage do
   link "マイページ", user_path
   parent :root
 end
+
+crumb :mypage_card do
+  link "マイページ", user_path(current_user)
+  parent :root
+end
+
+crumb :card_info do
+  link "支払い情報", card_index_path
+  parent :mypage_card
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end

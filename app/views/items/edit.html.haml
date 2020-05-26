@@ -1,13 +1,11 @@
 = render "new-header"
-
-= form_with model: @item, url: items_path , local: true do |f|
+= form_with model: @item, url: item_path , local: true do |f|
   .new-contents
     -# 商品画像
     .new-contents__box
       .new-contents__box__title
         出品画像
         %span{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "images"}
       .new-contents__box__image-text
         最大10枚までアップロードできます
       .flexbox
@@ -19,20 +17,19 @@
               ドラックアンドドロップ
               %br
               または、クリックしてファイルをアップロード
-          = f.fields_for :images, @item.images.build do |i|
+          = f.fields_for :images do |i|
             = i.file_field :image, {class: "file_field"}
+            = i.check_box :_destroy, {class: "hidden"}
     %hr
     -# 商品説明
     .new-contents__box
       .new-contents__box__title
         商品名
         %supan{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "name"}
       = f.text_field :name, {class: "new-contents__box__input", placeholder: "40文字まで"}
       .new-contents__box__title
         商品の説明
         %supan{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "explanation"}
       = f.text_area :explanation, {class: "new-contents__box__textarea", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意など）\n\n例）2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。合わせやすいのでおすすめです。"} 
     %hr
     -# 商品詳細
@@ -45,8 +42,15 @@
           %supan{class: "required"} 必須
           = render partial: 'layouts/error_messages', locals: {item: @item, column: "category_id"}
         .new-contents__box__select
-          = f.collection_select :category_id, Category.where(ancestry: nil), :id, :name, {prompt: '選択して下さい'}, {class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
+          = f.select :category_id, options_for_select(@category_parent_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.parent.id}),{},{class: 'new-contents__box__select__input', id: 'category-select-parent', required: "required"}
+        .new-contents__box__select#select-children-box
+          = f.select :category_id, options_for_select(@category_children_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.parent.id}),{},{class: 'new-contents__box__select__input', id: 'category-select-children', required: "required"}
+        .new-contents__box__select#select-grandchildren-box
+          = f.select :category_id, options_for_select(@category_grandchildren_array.map{|b| [b.name, b.id, {data:{category: b.id}}]}, {prompt: "指定なし", selected: @item.category.id}),{},{class: 'new-contents__box__select__input', id: 'category-select-grandchildren', required: "required"}
         .error-messages#error-category
+      - if @item.item_size_id?
+        .new-contents__box__select#size_wrapper
+          = f.select :item_size_id, options_for_select(@item_size_array.map{|b| [b.size, b.id, {data:{item_size: b.id}}]}, {prompt: "指定なし", selected: @item.item_size.id}),{},{class: 'new-contents__box__select__input', id: 'size', required: "required"}
       .new-contents__box__title
         ブランド
         %supan{class: "any"} 任意
@@ -64,17 +68,14 @@
       .new-contents__box__title
         発送料の負担
         %supan{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "shipping_fee_id"}
       = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
       .new-contents__box__title
         発送元の地域
         %supan{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "prefecture_id"}
       = f.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
       .new-contents__box__title
         発送までの日数
         %supan{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "shipping_day_id"}
       = f.collection_select :shipping_day_id, ShippingDay.all, :id, :name, {prompt: "選択してください"}, {class: "new-contents__box__select"}
     %hr
       -# 販売価格
@@ -84,10 +85,9 @@
       .new-contents__box__title
         販売価格
         %supan{class: "required"} 必須
-        = render partial: 'layouts/error_messages', locals: {item: @item, column: "price"}
         %supan{class: "yen"} ¥
         = f.text_field :price, {class: "new-contents__box__input-yen", placeholder: 0}
-        = f.submit "出品する", {class:"new-contents__box__input-yen__submit"}
+        = f.submit "編集完了", {class:"new-contents__box__input-yen__submit"}
       .new-contents__box__attention
         禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
 = render "new-footer"
