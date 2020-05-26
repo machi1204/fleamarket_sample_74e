@@ -1,0 +1,17 @@
+= render 'items/index_header'
+
+- breadcrumb :mypage
+-# = render "layouts/breadcrumbs"
+.user-container
+  .user-container-contents
+  
+    = render "layouts/mypage_left.html"
+
+    .user-container-contents__right
+      .user-container-contents__right_signout-content
+        .user-container-contents__right_signout-content-box
+          .user-container-contents__right_signout-content-box__btn
+            = link_to destroy_user_session_path, method: :delete, class: 'btn btn-signout' do
+              ログアウト
+
+
