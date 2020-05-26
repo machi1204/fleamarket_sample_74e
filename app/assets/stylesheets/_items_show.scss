@@ -218,6 +218,18 @@ a {
         margin: 15px 0 15px 0;
         cursor: pointer;
       }
+      .comment-btn-sold {
+        color: $white;
+        text-decoration: none;
+        background-color: #aaa;
+        border: 1px solid #aaa;
+        height: 60px;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+        margin: 15px 0 15px 0;
+        cursor: pointer;
+      }
     }
     .comment-container {
       li {
