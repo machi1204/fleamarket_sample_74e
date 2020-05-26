@@ -12,7 +12,7 @@
           = render partial: 'layouts/address_error_messages', locals: {item: @address, column: "post_number"}
           %label 郵便番号
           %span{class: "required"} 必須
-        = f.text_field :post_number, {class: "account-page__signup__form", placeholder: "例)123-4567"}
+        = f.text_field :post_number, {class: "account-page__signup__form", placeholder: "例)1234567"}
 
         .account-page__signup__template
           = render partial: 'layouts/address_error_messages', locals: {item: @address, column: "prefecture_id"}
