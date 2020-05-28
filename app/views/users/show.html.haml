@@ -9,6 +9,7 @@
 
     .user-container-contents__right
       .mypage-user-icon
+        = image_tag "user-back.png", class: "mypage-user-icon-user-back"
         = link_to "#" , class: "mypage-user-icon-image" do
           = image_tag "member_photo_noimage_thumb.png", size: "60x60"
           .mypage-user-icon__user-name
